@@ -17,7 +17,8 @@ create link files for bashrc, bash_profile, vimrc, vim
 
 get vim plugins using git submodule
 	
-	git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+	mkdir ~/.vim
+	git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 plugins installed
 -----------------
