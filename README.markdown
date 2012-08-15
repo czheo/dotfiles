@@ -19,6 +19,11 @@ get vim plugins using git submodule
 	
 	mkdir ~/.vim
 	git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+	
+install vundle
+	
+	vi
+	:BundleInstall
 
 plugins installed
 -----------------
@@ -32,6 +37,3 @@ plugins installed
 plugin management for vim
 -----------------------
 using vundle: https://github.com/gmarik/vundle
-	
-	vi
-	:BundleInstall
