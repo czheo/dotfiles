@@ -49,4 +49,5 @@ set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 set ai
 set ruler
 set encoding=utf-8
+set backspace=2
 colorscheme desert
