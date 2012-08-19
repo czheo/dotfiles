@@ -6,7 +6,7 @@ filetype off                   " required!
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-let g:vundle_default_git_proto = 'git'
+let g:vundle_default_git_proto = 'git' " set default git protocol from https to git
 
 " let Vundle manage Vundle
 " required! 
