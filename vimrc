@@ -51,3 +51,5 @@ set ruler
 set encoding=utf-8
 set backspace=2
 colorscheme desert
+au BufWinLeave * mkview " remember view
+au BufWinEnter * silent loadview " load view
