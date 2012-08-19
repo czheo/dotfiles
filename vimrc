@@ -16,7 +16,7 @@ Bundle 'gmarik/vundle.git'
 "
 " original repos on github
 Bundle 'scrooloose/nerdtree.git'
-Bundle 'mattn/zencoding-vim.git'
+Bundle 'rstacruz/sparkup.git', {'rtp': 'vim'} 
 Bundle 'tomtom/tcomment_vim.git'
 " Bundle 'tpope/vim-fugitive'
 " Bundle 'Lokaltog/vim-easymotion'
@@ -51,5 +51,9 @@ set ruler
 set encoding=utf-8
 set backspace=2
 colorscheme desert
-au BufWinLeave * mkview " remember view
-au BufWinEnter * silent loadview " load view
+" show hidden characters
+set list
+set listchars=tab:▸\ ,eol:¬
+" remember views
+au BufWritePost,BufLeave,WinLeave ?* mkview
+au BufWinEnter ?* silent loadview

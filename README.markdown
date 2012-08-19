@@ -29,8 +29,8 @@ plugins installed
 -----------------
 
 	plugin			basic usage
-	vundle			:BundleInstall
-	zencoding		<c-y>,
+	vundle			:BundleInstall,:BundleClean
+	sparkup			<c-e>,<c-n>
 	NERDTree		:e
 	tcomment		<c-_><c-_>
 
