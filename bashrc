@@ -3,7 +3,7 @@ alias la='ls -a'
 alias ll='ls -l'
 alias vi='vim'
 
-export PS1='\e[0;31m\u@\h \w :)\e[m'
+export PS1='\e[0;31m\u@\h[\W]:)\e[m'
 export PS2='> '
 export PS4='+ '
 
