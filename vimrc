@@ -46,14 +46,19 @@ filetype plugin indent on     " required!
 syntax on
 set nu
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
-set ai
+" set ai
 set ruler
 set encoding=utf-8
 set backspace=2
 colorscheme desert
+
 " show hidden characters
 set list
 set listchars=tab:▸\ ,eol:¬
+
 " remember views
 au BufWritePost,BufLeave,WinLeave ?* mkview
 au BufWinEnter ?* silent loadview
+
+" set sparkup shortcut
+let g:sparkupNextMapping = '<c-x>'
