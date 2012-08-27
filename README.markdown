@@ -30,7 +30,7 @@ plugins installed
 
 	plugin			basic usage
 	vundle			:BundleInstall,:BundleClean
-	sparkup			<c-e>,<c-n>
+	sparkup			<c-e>,<c-x>
 	NERDTree		:e
 	tcomment		<c-_><c-_>
 
