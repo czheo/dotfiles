@@ -29,7 +29,7 @@ Bundle 'tomtom/tcomment_vim.git'
 " Bundle 'git://git.wincent.com/command-t.git'
 " ...
 
-filetype plugin indent on     " required!
+filetype plugin on     " required!
 "
 " Brief help
 " :BundleList          - list configured bundles
@@ -46,7 +46,7 @@ filetype plugin indent on     " required!
 syntax on
 set nu
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
-" set ai
+set ai
 set ruler
 set encoding=utf-8
 set backspace=2
