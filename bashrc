@@ -10,3 +10,6 @@ export PS4='+ '
 export LSCOLORS="GxdxFxdxCxDxDxhbadExEx"
 export LC_ALL=ja_JP.UTF-8
 export LANG=ja_JP.UTF-8
+
+# show screens
+screen -ls
