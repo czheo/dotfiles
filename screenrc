@@ -6,3 +6,6 @@ hardstatus string '%{= kG}[ %{G}%H %{g}][%=  %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u
 # screen -t ScreenName ScreenNumber ShellCommand
 screen -t shell1		0
 screen -t shell2		1
+
+# default keybind
+escape a
