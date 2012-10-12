@@ -43,7 +43,7 @@ using vundle: https://github.com/gmarik/vundle
 basic usage of screen
 ----------------------
 
-all commands are preceded by <c-a>
+all commands are preceded by <c-z>
 
 Basics:
 0~9:		switches between windows
