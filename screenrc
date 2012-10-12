@@ -4,8 +4,9 @@ hardstatus string '%{= kG}[ %{G}%H %{g}][%=  %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u
 
 # default screens on startup
 # screen -t ScreenName ScreenNumber ShellCommand
-screen -t shell1		0
-screen -t shell2		1
+screen -t t1		0
+screen -t t2		1
+screen -t t3		2
 
 # default keybind
 escape a

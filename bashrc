@@ -13,3 +13,8 @@ export LANG=ja_JP.UTF-8
 
 # show screens
 screen -ls
+
+# bash config on this machine
+if [ -f ~/.bash_this ]; then
+     . ~/.bash_this
+fi
