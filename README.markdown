@@ -31,6 +31,7 @@ alter internationalization when neccessary
    vi ~/.bashrc
    en_US <--> ja_JP
 
+
 plugins installed
 -----------------
 
