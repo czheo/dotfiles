@@ -45,7 +45,7 @@ filetype plugin on     " required!
 """""""""""""""""""""""""""""""""""""
 syntax on
 set nu
-set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 set ai
 set ruler
 set encoding=utf-8
