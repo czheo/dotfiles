@@ -39,32 +39,9 @@ plugins installed
     sparkup         <c-e>,<c-x>
     NERDTree        :e
     tcomment        <c-_><c-_>
+    screen          <c-z>
 
 plugin management for vim
 -----------------------
 
 using vundle: https://github.com/gmarik/vundle
-
-basic usage of screen
-----------------------
-
-all commands are preceded by <c-a>
-
-Basics:
-0~9:        switches between windows
-<c-n>:      next window
-backspace:  previous window
-<c-a>:      last window you were on
-A:          change window name
-K:          kill window
-c:          create window
-[,]:        copy mode
-
-Seperation:
-S:          seperate region
-tab:        switch region
-X:          close region
-
-
-screen -ls: list available sessions
-screen -r:  attach a detached session
