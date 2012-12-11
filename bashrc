@@ -1,5 +1,5 @@
-# alias ls='ls -GF'         # freebsd
-alias ls='ls -F --color'    # centos
+alias ls='ls -GF'         # unix
+# alias ls='ls -F --color'    # centos
 alias la='ls -a'
 alias ll='ls -l'
 alias vi='vim'
