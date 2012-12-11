@@ -1,4 +1,5 @@
-alias ls='ls -GF'
+# alias ls='ls -GF'         # freebsd
+alias ls='ls -F --color'    # centos
 alias la='ls -a'
 alias ll='ls -l'
 alias vi='vim'
@@ -8,8 +9,8 @@ export PS2='> '
 export PS4='+ '
 
 export LSCOLORS="GxdxFxdxCxDxDxhbadExEx"
-export LC_ALL=ja_JP.UTF-8
-export LANG=ja_JP.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # show screens
 screen -ls
