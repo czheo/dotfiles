@@ -13,5 +13,5 @@ install : bashrc bash_profile vimrc gitconfig gitignore screenrc
 	vim -c "BundleInstall"
 
 clean :
-	rm -rfv ~/.bash_profile ~/.bashrc ~/.vimrc ~/.screenrc ~/.gitconfig ~/.gitignore
+	rm -rfv ~/.bash_profile ~/.bashrc ~/.vimrc ~/.screenrc ~/.gitconfig ~/.gitignore ~/.git_completion.bash
 	rm -rfv ~/.vim

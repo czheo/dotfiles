@@ -23,7 +23,14 @@ export PS4='+ '
 
 export LSCOLORS="GxdxFxdxCxDxDxhbadExEx"
 
+if [ -f ~/.git_completion.bash ]; then
+    source ~/.git_completion.bash
+else
+    wget https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -O ~/.git_completion.bash
+    source ~/.git_completion.bash
+fi
+
 # bash config on this machine
 if [ -f ~/.bash_this ]; then
-     . ~/.bash_this
+    source ~/.bash_this
 fi
