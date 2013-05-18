@@ -7,10 +7,10 @@ install : bashrc bash_profile vimrc gitconfig gitignore screenrc
 	ln -s ~/.dotfiles/screenrc ~/.screenrc
 	ln -s ~/.dotfiles/gitconfig ~/.gitconfig
 	ln -s ~/.dotfiles/gitignore ~/.gitignore
+	source ~/.bashrc
 	mkdir ~/.vim
 	git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 	vim -c "BundleInstall"
-	source ~/.bashrc
 
 clean :
 	rm -rfv ~/.bash_profile ~/.bashrc ~/.vimrc ~/.screenrc ~/.gitconfig ~/.gitignore
