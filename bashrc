@@ -15,15 +15,13 @@ ls -F --color > /dev/null 2>&1 && alias ls='ls -F --color'  # linux based
 alias la='ls -a'
 alias ll='ls -l'
 alias vi='vim'
+alias md='mkdir'
 
-export PS1='\[\e[0;32m\]\u@\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]:)\[\e[m\] '
+export PS1='\[\e[1;33m\][\u@\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\]\[\e[1;33m\]]\n:)\[\e[m\] '
 export PS2='> '
 export PS4='+ '
 
 export LSCOLORS="GxdxFxdxCxDxDxhbadExEx"
-
-# show screens
-screen -ls
 
 # bash config on this machine
 if [ -f ~/.bash_this ]; then

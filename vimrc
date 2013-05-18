@@ -16,11 +16,14 @@ Bundle 'gmarik/vundle.git'
 "
 " original repos on github
 Bundle 'scrooloose/nerdtree.git'
-Bundle 'rstacruz/sparkup.git', {'rtp': 'vim'} 
+Bundle 'rstacruz/sparkup.git', {'rtp': 'vim/'} 
 Bundle 'tomtom/tcomment_vim.git'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'walm/jshint.vim'
+Bundle 'tpope/vim-haml'
+Bundle 'elzr/vim-json'
 " Bundle 'tpope/vim-fugitive'
 " Bundle 'Lokaltog/vim-easymotion'
-" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Bundle 'tpope/vim-rails.git'
 " vim-scripts repos
 " Bundle 'L9'
@@ -45,7 +48,7 @@ filetype plugin on     " required!
 """""""""""""""""""""""""""""""""""""
 syntax on
 set nu
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set ai
 set ruler
 set encoding=utf-8
@@ -53,8 +56,8 @@ set backspace=2
 colorscheme desert
 
 " show hidden characters
-set list
-set listchars=tab:▸\ ,eol:¬
+" set list
+" set listchars=tab:▸\ ,eol:¬
 
 " remember views
 au BufWritePost,BufLeave,WinLeave ?* mkview
