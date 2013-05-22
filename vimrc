@@ -55,6 +55,14 @@ set encoding=utf-8
 set backspace=2
 colorscheme desert
 
+" key bindings
+nnoremap th  :tabfirst<CR>
+nnoremap tj  :tabnext<CR>
+nnoremap tk  :tabprev<CR>
+nnoremap tl  :tablast<CR>
+nnoremap td  :tabclose<CR>
+nnoremap tn :tabnew<CR>
+
 " show hidden characters
 " set list
 " set listchars=tab:▸\ ,eol:¬
