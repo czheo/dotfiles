@@ -2,7 +2,7 @@
 install : bash_profile vimrc gitconfig gitignore screenrc bashrc
 	make clean
 	ln -s ~/.dotfiles/bash_profile ~/.bash_profile
-	ln -s ~/.dotfiles/bash_profile ~/.bash_rc
+	ln -s ~/.dotfiles/bashrc ~/.bashrc
 	ln -s ~/.dotfiles/vimrc ~/.vimrc
 	ln -s ~/.dotfiles/screenrc ~/.screenrc
 	ln -s ~/.dotfiles/gitconfig ~/.gitconfig
@@ -13,9 +13,9 @@ install : bash_profile vimrc gitconfig gitignore screenrc bashrc
 	vim -c "BundleInstall"
 
 install-bash : bash_profile bashrc screenrc
-	rm -vf ~/.bash_profile ~/.bash_rc ~/.screenrc
+	rm -vf ~/.bash_profile ~/.bashrc ~/.screenrc
 	ln -s ~/.dotfiles/bash_profile ~/.bash_profile
-	ln -s ~/.dotfiles/bash_profile ~/.bash_rc
+	ln -s ~/.dotfiles/bashrc ~/.bashrc
 	ln -s ~/.dotfiles/screenrc ~/.screenrc
 
 clean :
