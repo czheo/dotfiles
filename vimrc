@@ -19,7 +19,7 @@ Bundle 'scrooloose/nerdtree.git'
 Bundle 'rstacruz/sparkup.git', {'rtp': 'vim/'} 
 Bundle 'tomtom/tcomment_vim.git'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'walm/jshint.vim'
+Bundle 'wookiehangover/jshint.vim'
 Bundle 'tpope/vim-haml'
 Bundle 'elzr/vim-json'
 " Bundle 'tpope/vim-fugitive'
@@ -57,8 +57,8 @@ colorscheme desert
 
 " key bindings
 nnoremap th  :tabfirst<CR>
-nnoremap tj  :tabnext<CR>
-nnoremap tk  :tabprev<CR>
+nnoremap tk  :tabnext<CR>
+nnoremap tj  :tabprev<CR>
 nnoremap tl  :tablast<CR>
 nnoremap td  :tabclose<CR>
 nnoremap tn :tabnew<CR>
