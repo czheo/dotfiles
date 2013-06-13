@@ -55,6 +55,11 @@ set encoding=utf-8
 set backspace=2
 colorscheme desert
 
+" highlight line column
+au WinLeave * set nocursorline nocursorcolumn
+au WinEnter * set cursorline cursorcolumn
+set cursorline cursorcolumn
+
 " key bindings
 nnoremap th  :tabfirst<CR>
 nnoremap tk  :tabnext<CR>
