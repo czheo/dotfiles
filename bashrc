@@ -1,17 +1,11 @@
-IS_EN=true;     # -----------> EDIT HERE! if language is Japanese
-if [ $IS_EN ]
-then
-    # english os
-    export LC_ALL=en_US.UTF-8
-    export LANG=en_US.UTF-8
-else
-    # japanese os
-    export LC_ALL=ja_JP.UTF-8
-    export LANG=ja_JP.UTF-8
-fi
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
-ls -GF > /dev/null 2>&1 && alias ls='ls -GF'                # unix based
-ls -F --color > /dev/null 2>&1 && alias ls='ls -F --color'  # linux based
+if [ `uname` = "Linux" ];then
+    alias ls='ls -F --color'
+elif [ `uname` = "Darwin" ];then
+    alias ls='ls -GF'
+fi
 alias la='ls -a'
 alias ll='ls -l'
 alias vi='vim'
