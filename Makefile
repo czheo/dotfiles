@@ -4,13 +4,13 @@ install : clean install-screen install-git install-bash install-vim
 install-bash : bash_profile bashrc screenrc
 	ln -s ~/.dotfiles/bash_profile ~/.bash_profile
 	ln -s ~/.dotfiles/bashrc ~/.bashrc
-	bash ~/.bash_profile
+	source ~/.bash_profile
 
 install-vim : vimrc
 	ln -s ~/.dotfiles/vimrc ~/.vimrc
 	mkdir ~/.vim
 	git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-	vim -c "BundleInstall"
+	vim +BundleInstall +qall
 
 install-screen : screenrc
 	ln -s ~/.dotfiles/screenrc ~/.screenrc
