@@ -4,7 +4,7 @@ install : clean install-screen install-git install-bash install-vim
 install-bash : bash_profile bashrc screenrc
 	ln -s ~/.dotfiles/bash_profile ~/.bash_profile
 	ln -s ~/.dotfiles/bashrc ~/.bashrc
-	source ~/.bash_profile
+	. ~/.bash_profile
 
 install-vim : vimrc
 	ln -s ~/.dotfiles/vimrc ~/.vimrc
@@ -12,8 +12,9 @@ install-vim : vimrc
 	git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 	vim +BundleInstall +qall
 
-install-screen : screenrc
+install-screen : screenrc tmux.conf
 	ln -s ~/.dotfiles/screenrc ~/.screenrc
+	ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 
 install-git : gitignore gitconfig
 	ln -s ~/.dotfiles/gitconfig ~/.gitconfig
