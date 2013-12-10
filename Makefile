@@ -21,5 +21,7 @@ install-git : gitignore gitconfig
 	ln -s ~/.dotfiles/gitignore ~/.gitignore
 
 clean :
-	rm -rfv ~/.bash_profile ~/.vimrc ~/.screenrc ~/.gitconfig ~/.gitignore ~/.git_completion.bash ~/.bashrc
+	rm -rfv ~/.bash_profile ~/.vimrc ~/.screenrc ~/.gitconfig ~/.gitignore ~/.git_completion.bash ~/.bashrc ~/.tmux.conf
 	rm -rfv ~/.vim
+
+.PHONY:install install-bash install-vim install-screen install-git clean
