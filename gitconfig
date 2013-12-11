@@ -10,5 +10,3 @@
 	st = status
 [credential]
 	helper = osxkeychain
-[push]
-	default = simple
