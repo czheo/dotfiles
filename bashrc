@@ -3,7 +3,7 @@ export LANG=en_US.UTF-8
 
 if [ `uname` = "Linux" ];then
     alias ls='ls -F --color'
-elif [ `uname` = "Darwin" ];then
+elif [ `uname` = "Darwin" -o `uname` = "FreeBSD" ];then
     alias ls='ls -GF'
 fi
 alias la='ls -a'
