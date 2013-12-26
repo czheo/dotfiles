@@ -16,7 +16,7 @@ fi
 
 # download src
 mkdir ~/.dotfiles
-git clone git://github.com/czheo/dotfiles.git ~/.dotfiles
+git clone git://github.com/czheo/dotfiles.git ~/.dotfiles || {echo "git clone failed!"; exit 1;}
 
 # clean
 rm -rfv ~/.bash_profile \
