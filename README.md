@@ -1,17 +1,10 @@
 dotfiles for unix/linux configuration
 ===========================
 
-initialize configurations on a new machine
+Installation
 ------------------
 
-1. create ~/.dotfiles and clone files from git
-
-        mkdir ~/.dotfiles
-        git clone git://github.com/czheo/dotfiles.git ~/.dotfiles
-
-2. install dotfiles use make
-
-        make
+    curl https://raw.github.com/czheo/dotfiles/master/install.sh | bash && . ~/.bashrc
 
 plugin management for vim
 -----------------------
