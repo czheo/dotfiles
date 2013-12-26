@@ -2,16 +2,10 @@
 
 # check installed
 if [ -e ~/.dotfiles ]; then
-    echo "~/.dotfiles existed!"
-    echo -n "proceed anyway?(y/n)"
-    read input
-    if [ $input = "y" ]
-    then
-        echo "proceeding..."
-    else
-        echo "exit!"
-        exit 1
-    fi
+    echo "[ERROR] ~/.dotfiles existed!"
+    echo "Please run:"
+    echo "rm -rvf ~/.dotfiles"
+    exit 1
 fi
 
 # download src
@@ -25,6 +19,7 @@ rm -rfv ~/.bash_profile \
         ~/.gitconfig \
         ~/.gitignore \
         ~/.git_completion.bash \
+        ~/.git-prompt.sh \
         ~/.bashrc \
         ~/.tmux.conf \
         > /dev/null 2>&1
