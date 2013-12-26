@@ -40,7 +40,8 @@ ln -s ~/.dotfiles/bashrc ~/.bashrc
 ln -s ~/.dotfiles/vimrc ~/.vimrc
 mkdir ~/.vim
 git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-vim +BundleInstall +qall > /dev/null 2>&1
+echo "Installing vim plugins ..."
+vim +BundleInstall +qall > /dev/null
 
 # screen & tmux
 ln -s ~/.dotfiles/screenrc ~/.screenrc
