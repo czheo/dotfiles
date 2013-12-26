@@ -10,8 +10,10 @@ fi
 alias l='ls'
 alias la='ls -a'
 alias ll='ls -l'
+alias lla='ls -al'
 alias vi='vim'
 alias md='mkdir'
+alias rmd='rm -rvf'
 
 # git-prompt
 # show git current branch for you
