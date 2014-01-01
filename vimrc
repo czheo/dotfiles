@@ -1,4 +1,37 @@
 """""""""""""""""""""""""""""""""""""
+" basic vim configuration
+"""""""""""""""""""""""""""""""""""""
+syntax on
+set nu
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+set ai
+set ruler
+set encoding=utf-8
+set backspace=2
+colorscheme desert
+
+" highlight line column
+" au WinLeave * set nocursorline nocursorcolumn
+" au WinEnter * set cursorline cursorcolumn
+" set cursorline cursorcolumn
+
+" tab key bindings
+nnoremap th  :tabfirst<CR>
+nnoremap tk  :tabnext<CR>
+nnoremap tj  :tabprev<CR>
+nnoremap tl  :tablast<CR>
+nnoremap td  :tabclose<CR>
+nnoremap tn  :tabnew<CR>
+
+" show hidden characters
+" set list
+" set listchars=tab:▸\ ,eol:¬
+
+" remember views
+au BufWritePost,BufLeave,WinLeave ?* mkview
+au BufWinEnter ?* silent loadview
+
+"""""""""""""""""""""""""""""""""""""
 " vundle configuration
 """""""""""""""""""""""""""""""""""""
 set nocompatible               " be iMproved
@@ -15,13 +48,7 @@ Bundle 'gmarik/vundle.git'
 " My Bundles here:
 "
 " original repos on github
-Bundle 'scrooloose/nerdtree.git'
-Bundle 'rstacruz/sparkup.git', {'rtp': 'vim/'} 
-Bundle 'tomtom/tcomment_vim.git'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'wookiehangover/jshint.vim'
-Bundle 'tpope/vim-haml'
-Bundle 'elzr/vim-json'
+" Bundle 'wookiehangover/jshint.vim'
 " Bundle 'tpope/vim-fugitive'
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'tpope/vim-rails.git'
@@ -44,37 +71,33 @@ filetype plugin on     " required!
 " NOTE: comments after Bundle command are not allowed..
 
 """""""""""""""""""""""""""""""""""""
-" basic vim configuration
+" vundle plugins
 """""""""""""""""""""""""""""""""""""
-syntax on
-set nu
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-set ai
-set ruler
-set encoding=utf-8
-set backspace=2
-colorscheme desert
 
-" highlight line column
-" au WinLeave * set nocursorline nocursorcolumn
-" au WinEnter * set cursorline cursorcolumn
-" set cursorline cursorcolumn
+" file tree plugin
+Bundle 'scrooloose/nerdtree.git'
 
-" key bindings
-nnoremap th  :tabfirst<CR>
-nnoremap tk  :tabnext<CR>
-nnoremap tj  :tabprev<CR>
-nnoremap tl  :tablast<CR>
-nnoremap td  :tabclose<CR>
-nnoremap tn :tabnew<CR>
+""""""""""""""""""""
 
-" show hidden characters
-" set list
-" set listchars=tab:▸\ ,eol:¬
+" comment out plugin
+Bundle 'tomtom/tcomment_vim.git'
 
-" remember views
-au BufWritePost,BufLeave,WinLeave ?* mkview
-au BufWinEnter ?* silent loadview
+""""""""""""""""""""
 
+" syntax highlight
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-haml'
+Bundle 'elzr/vim-json'
+
+""""""""""""""""""""
+
+" write html faster
+Bundle 'rstacruz/sparkup.git', {'rtp': 'vim/'} 
 " set sparkup shortcut
 let g:sparkupNextMapping = '<c-x>'
+
+""""""""""""""""""""
+
+" syntax checker
+" npm install -g jshint for javascript
+Bundle 'scrooloose/syntastic'
