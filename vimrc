@@ -101,3 +101,8 @@ let g:sparkupNextMapping = '<c-x>'
 " syntax checker
 " npm install -g jshint for javascript
 Bundle 'scrooloose/syntastic'
+
+""""""""""""""""""""
+" code completion
+" https://github.com/Valloric/YouCompleteMe
+" Bundle 'Valloric/YouCompleteMe'
