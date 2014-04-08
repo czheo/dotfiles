@@ -32,7 +32,9 @@ mkdir ~/.vim
 git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 ln -s ~/.dotfiles/vimrc ~/.vimrc
 echo "Installing vim plugins ..."
-vim +BundleInstall +qall > /dev/null
+vim +BundleInstall +qall > /dev/null 2>&1
 if [ $? ]; then
     echo "successfully installed!" 
+else
+    echo "[ERROR] when runing \"vim +BundleInstall +qall > /dev/null 2>&1\""
 fi
