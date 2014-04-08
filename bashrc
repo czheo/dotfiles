@@ -1,5 +1,6 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export PATH=~/bin:$PATH
 
 # alias
 if [ `uname` = "Linux" ];then
