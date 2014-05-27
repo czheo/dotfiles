@@ -8,6 +8,7 @@ rm -rfv ~/.bash_profile \
         ~/.gitconfig \
         ~/.gitignore \
         ~/.git_completion.bash \
+        ~/.git-completion.bash \
         ~/.git-prompt.sh \
         ~/.bashrc \
         ~/.tmux.conf \
