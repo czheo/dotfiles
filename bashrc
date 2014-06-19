@@ -25,7 +25,7 @@ clr=$ESC_SEQ"39;49;00m"
 function __files() {
     ls -l | grep "^[-d]" | wc -l | tr -d " "
 }
-export PS1="${red}[\t]${ylw}[\u@\h]${blue}[\w]${red}\$(__git_ps1)${cls} \$(__files) files\n${ylw}:)${cls} "
+export PS1="${red}[\t]${ylw}[\u@\h]${blue}[\w]${red}\$(__git_ps1)${clr} \$(__files) files\n${ylw}:)${clr} "
 export PS2='> '
 export PS4='+ '
 
