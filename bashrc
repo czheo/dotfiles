@@ -17,11 +17,15 @@ alias md='mkdir'
 alias rmd='rm -rvf'
 
 # prompt
-cred='\[\e[0;31m\]'
-cyellow='\[\e[0;33m\]'
-cbblue='\[\e[1;34m\]'
-cclose='\[\e[m\]'
-export PS1="${cyellow}[\u@\h]${cclose}${cbblue}[\w]${cclose}${cred}\$(__git_ps1)${cclose}\n${cyellow}:)${cclose} "
+ESC_SEQ="\033["
+red=$ESC_SEQ"31m"
+ylw=$ESC_SEQ"33m"
+blue=$ESC_SEQ"34m"
+clr=$ESC_SEQ"39;49;00m"
+function __files() {
+    ls -l | grep "^[-d]" | wc -l | tr -d " "
+}
+export PS1="${red}[\t]${ylw}[\u@\h]${blue}[\w]${red}\$(__git_ps1)${cls} \$(__files) files\n${ylw}:)${cls} "
 export PS2='> '
 export PS4='+ '
 
