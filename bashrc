@@ -17,11 +17,12 @@ alias md='mkdir'
 alias rmd='rm -rvf'
 
 # prompt
-ESC_SEQ="\033["
-red=$ESC_SEQ"31m"
-ylw=$ESC_SEQ"33m"
-blue=$ESC_SEQ"34m"
-clr=$ESC_SEQ"39;49;00m"
+intro="\[\033["
+outro="\]"
+red=$intro"31m"$outro
+ylw=$intro"33m"$outro
+blue=$intro"34m"$outro
+clr=$intro"39;49;00m"$outro
 function __files() {
     ls -l | grep "^[-d]" | wc -l | tr -d " "
 }
