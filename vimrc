@@ -88,6 +88,8 @@ Bundle 'tomtom/tcomment_vim.git'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-haml'
 Bundle 'elzr/vim-json'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 """"""""""""""""""""
 

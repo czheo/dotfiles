@@ -10,7 +10,6 @@ rm -rfv ~/.bash_profile \
         ~/.git_completion.bash \
         ~/.git-completion.bash \
         ~/.git-prompt.sh \
-        ~/.bashrc \
         ~/.tmux.conf \
         > /dev/null 2>&1
 rm -rfv ~/.vim \
@@ -18,7 +17,6 @@ rm -rfv ~/.vim \
 
 # bash
 ln -s ~/.dotfiles/bash_profile ~/.bash_profile
-ln -s ~/.dotfiles/bashrc ~/.bashrc
 
 # screen & tmux
 ln -s ~/.dotfiles/screenrc ~/.screenrc
