@@ -76,6 +76,7 @@ filetype plugin on     " required!
 
 " file tree plugin
 Bundle 'scrooloose/nerdtree.git'
+autocmd VimEnter * NERDTree
 
 """"""""""""""""""""
 
@@ -90,6 +91,8 @@ Bundle 'tpope/vim-haml'
 Bundle 'elzr/vim-json'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'mxw/vim-jsx'
+let g:jsx_ext_required = 0
 
 """"""""""""""""""""
 
