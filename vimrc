@@ -76,7 +76,10 @@ filetype plugin on     " required!
 
 " file tree plugin
 Bundle 'scrooloose/nerdtree.git'
-autocmd VimEnter * NERDTree
+nnoremap nt  :NERDTree<CR>
+
+" fuzzy find 
+Bundle 'kien/ctrlp.vim'
 
 """"""""""""""""""""
 
