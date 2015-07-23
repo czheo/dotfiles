@@ -3,7 +3,7 @@
 """""""""""""""""""""""""""""""""""""
 syntax on
 set nu
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+set tabstop=4 softtabstop=2 shiftwidth=2 expandtab
 set ai
 set ruler
 set encoding=utf-8
@@ -24,12 +24,15 @@ nnoremap td  :tabclose<CR>
 nnoremap tn  :tabnew<CR>
 
 " show hidden characters
-" set list
-" set listchars=tab:▸\ ,eol:¬
+set list
+set listchars=tab:▸\ ,eol:¬
 
 " remember views
 au BufWritePost,BufLeave,WinLeave ?* mkview
 au BufWinEnter ?* silent loadview
+
+" change indent based on filetype
+au FileType python setl sw=4 sts=4 et
 
 """""""""""""""""""""""""""""""""""""
 " vundle configuration
@@ -89,9 +92,11 @@ Bundle 'tomtom/tcomment_vim.git'
 """"""""""""""""""""
 
 " syntax highlight
-Bundle 'kchmck/vim-coffee-script'
+" Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-haml'
 Bundle 'elzr/vim-json'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'vim-scripts/vim-coffee-script'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'mxw/vim-jsx'
