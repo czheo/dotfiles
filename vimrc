@@ -82,7 +82,7 @@ Bundle 'scrooloose/nerdtree.git'
 nnoremap nt  :NERDTree<CR>
 
 " fuzzy find 
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 
 """"""""""""""""""""
 
