@@ -3,7 +3,7 @@
 """""""""""""""""""""""""""""""""""""
 syntax on
 set nu
-set tabstop=4 softtabstop=2 shiftwidth=2 expandtab
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set ai
 set ruler
 set encoding=utf-8
@@ -11,9 +11,9 @@ set backspace=2
 colorscheme desert
 
 " highlight line column
-" au WinLeave * set nocursorline nocursorcolumn
-" au WinEnter * set cursorline cursorcolumn
-" set cursorline cursorcolumn
+au WinLeave * set nocursorline nocursorcolumn
+au WinEnter * set cursorline cursorcolumn
+set cursorline cursorcolumn
 
 " tab key bindings
 nnoremap th  :tabfirst<CR>
@@ -119,3 +119,9 @@ Bundle 'scrooloose/syntastic'
 " code completion
 " https://github.com/Valloric/YouCompleteMe
 " Bundle 'Valloric/YouCompleteMe'
+
+""""""""""""""""""""
+Plugin 'fatih/vim-go'
+
+""""""""""""""""""""
+Plugin 'vim-latex/vim-latex'
