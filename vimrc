@@ -100,6 +100,9 @@ Bundle 'vim-scripts/vim-coffee-script'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'mxw/vim-jsx'
+Plugin 'vim-scripts/Vim-R-plugin'
+Plugin 'rust-lang/rust.vim'
+let g:vimrplugin_assign = 0
 let g:jsx_ext_required = 0
 
 """"""""""""""""""""
@@ -125,3 +128,10 @@ Plugin 'fatih/vim-go'
 
 """"""""""""""""""""
 Plugin 'vim-latex/vim-latex'
+
+""""""""""""""""""""
+" lisp interactive mode
+Plugin 'jpalardy/vim-slime'
+let g:slime_target = "tmux"
+let g:slime_python_ipython = 1
+let g:slime_default_config = {"socket_name": "default", "target_pane": "1"}
