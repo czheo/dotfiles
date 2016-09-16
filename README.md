@@ -5,7 +5,7 @@ Installation
 ------------------
 
     curl https://raw.githubusercontent.com/czheo/dotfiles/master/install.sh | bash
-    . ~/.bashrc
+    . ~/.bash_profile
 
 plugin management for vim
 -----------------------
