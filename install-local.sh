@@ -37,3 +37,6 @@ if [ $? ]; then
 else
     echo "[ERROR] when runing \"vim +BundleInstall +qall > /dev/null 2>&1\""
 fi
+
+# install bin
+cp -ir ~/.dotfiles/bin/ ~/bin

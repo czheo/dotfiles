@@ -1,0 +1,56 @@
+#!/usr/bin/env python
+import re
+import os
+
+GROUP_CHAR = "#"
+SERVER_CHAR = "-"
+
+def select_server_group():
+    with open(os.path.join(os.path.dirname(__file__), 'servers.md')) as f:
+        group_list = []
+        for line in f:
+            if line.startswith(GROUP_CHAR):
+                group_list.append(line.replace(GROUP_CHAR, "").strip())
+
+    return select_from(group_list, "Select a group: ")
+
+def select_server(group):
+    with open(os.path.join(os.path.dirname(__file__), 'servers.md')) as f:
+        server_list = []
+        in_group = False
+        for line in f:
+            if re.match(r"^# *" + group, line):
+                in_group = True
+                continue
+
+            if in_group:
+                if line.startswith(SERVER_CHAR):
+                    server_list.append(line.replace(SERVER_CHAR, "").strip())
+                elif re.match(r"^# *", line):
+                    in_group = False
+
+    return select_from(server_list, "Select a server: ")
+    
+def select_from(lst, msg):
+    i = 0
+    for item in lst:
+        i += 1
+        print("%d) %s" % (i, item))
+    idx = int(input(msg)) - 1
+
+    if idx >=0 and idx < len(lst):
+        return lst[idx]
+    else:
+        return None
+                
+
+if __name__ == "__main__":
+    group = select_server_group()
+    server = select_server(group)
+    if server:
+        print("Connecting to %s..." % server)
+        username = input("username: ")
+        os.system("ssh %s@%s" % (username, server))
+    else:
+        print("No server selected!!")
+
