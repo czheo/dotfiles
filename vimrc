@@ -128,6 +128,7 @@ Plugin 'fatih/vim-go'
 
 """"""""""""""""""""
 Plugin 'vim-latex/vim-latex'
+Plugin 'vim-scripts/django.vim'
 
 """"""""""""""""""""
 " lisp interactive mode
@@ -135,3 +136,9 @@ Plugin 'jpalardy/vim-slime'
 let g:slime_target = "tmux"
 let g:slime_python_ipython = 1
 let g:slime_default_config = {"socket_name": "default", "target_pane": "1"}
+
+""""""""""""""""""""
+Plugin 'vim-scripts/taglist.vim'
+
+""""""""""""""""""""
+Plugin 'vim-scripts/SyntaxRange'
