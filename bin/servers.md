@@ -29,6 +29,7 @@
   * Centos 7.2 4x2.6GHz AMD
 - slamdance.soe.ucsc.edu 
   * Centos 6.8 4x2.6GHz AMD
+- udance.soe.ucsc.edu
 
 # Compute Clusters
 
