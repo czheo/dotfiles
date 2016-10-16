@@ -142,3 +142,5 @@ Plugin 'vim-scripts/taglist.vim'
 
 """"""""""""""""""""
 Plugin 'vim-scripts/SyntaxRange'
+
+Plugin 'shougo/vinarise.vim'

@@ -25,7 +25,7 @@ def select_server(group):
 
             if in_group:
                 if line.startswith(SERVER_CHAR):
-                    server_list.append(line.replace(SERVER_CHAR, "").strip())
+                    server_list.append(line[1:].strip())
                 elif re.match(r"^# *", line):
                     in_group = False
 
@@ -50,7 +50,10 @@ if __name__ == "__main__":
     if server:
         print("Connecting to %s..." % server)
         username = input("username: ")
-        os.system("ssh %s@%s" % (username, server))
+        if username:
+            os.system("ssh %s@%s" % (username, server))
+        else:
+            os.system("ssh %s" % server)
     else:
         print("No server selected!!")
 
