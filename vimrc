@@ -11,10 +11,15 @@ set backspace=2
 colorscheme desert
 
 " highlight line column
-au WinLeave * set nocursorline nocursorcolumn
-au WinEnter * set cursorline cursorcolumn
-set cursorline cursorcolumn
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
 
+" make binding
+nnoremap <c-m>  :!make<CR>
+nnoremap cd  :cd %:p:h<CR>
 " tab key bindings
 nnoremap th  :tabfirst<CR>
 nnoremap tk  :tabnext<CR>
@@ -79,7 +84,10 @@ filetype plugin on     " required!
 
 " file tree plugin
 Bundle 'scrooloose/nerdtree.git'
-nnoremap nt  :NERDTree<CR>
+nnoremap <silent> <c-n>  :NERDTreeToggle<CR>
+" open nerdtree on start
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
 
 " fuzzy find 
 Bundle 'ctrlpvim/ctrlp.vim'
