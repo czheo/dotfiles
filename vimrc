@@ -151,4 +151,9 @@ Plugin 'vim-scripts/taglist.vim'
 """"""""""""""""""""
 Plugin 'vim-scripts/SyntaxRange'
 
+""""""""""""""""""""
+" binary editor
+" :Vinarise binary.bin
+" :VinariseDump object.obj
+""""""""""""""""""""
 Plugin 'shougo/vinarise.vim'
