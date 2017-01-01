@@ -3,6 +3,7 @@
 
 # clean
 rm -rfv ~/.bash_profile \
+        ~/.bashrc \
         ~/.vimrc \
         ~/.screenrc \
         ~/.gitconfig \
@@ -17,6 +18,7 @@ rm -rfv ~/.vim \
 
 # bash
 ln -s ~/.dotfiles/bash_profile ~/.bash_profile
+ln -s ~/.dotfiles/bashrc ~/.bashrc
 
 # screen & tmux
 ln -s ~/.dotfiles/screenrc ~/.screenrc
@@ -31,7 +33,8 @@ mkdir ~/.vim
 git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 ln -s ~/.dotfiles/vimrc ~/.vimrc
 echo "Installing vim plugins ..."
-vim +BundleInstall +qall > /dev/null 2>&1
+# vim +BundleInstall +qall > /dev/null 2>&1
+vim +BundleInstall +qall
 if [ $? ]; then
     echo "successfully installed!" 
 else

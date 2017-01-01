@@ -17,17 +17,6 @@ augroup CursorLine
   au WinLeave * setlocal nocursorline
 augroup END
 
-" make binding
-nnoremap <c-m>  :!make<CR>
-nnoremap cd  :cd %:p:h<CR>
-" tab key bindings
-nnoremap th  :tabfirst<CR>
-nnoremap tk  :tabnext<CR>
-nnoremap tj  :tabprev<CR>
-nnoremap tl  :tablast<CR>
-nnoremap td  :tabclose<CR>
-nnoremap tn  :tabnew<CR>
-
 " show hidden characters
 set list
 set listchars=tab:▸\ ,eol:¬
@@ -38,6 +27,26 @@ au BufWinEnter ?* silent loadview
 
 " change indent based on filetype
 au FileType python setl sw=4 sts=4 et
+
+"""""""""""""""""""""""""""""""""""""
+" key binding
+"""""""""""""""""""""""""""""""""""""
+" make
+nnoremap <c-m>  :!make<CR>
+
+" change directory
+nnoremap cd  :cd %:p:h<CR>
+
+" tab
+nnoremap th  :tabfirst<CR>
+nnoremap tk  :tabnext<CR>
+nnoremap tj  :tabprev<CR>
+nnoremap tl  :tablast<CR>
+nnoremap td  :tabclose<CR>
+nnoremap tn  :tabnew<CR>
+
+" toggle nu
+nnoremap <c-i>  :set invnumber<CR>
 
 """""""""""""""""""""""""""""""""""""
 " vundle configuration
@@ -86,8 +95,8 @@ filetype plugin on     " required!
 Bundle 'scrooloose/nerdtree.git'
 nnoremap <silent> <c-n>  :NERDTreeToggle<CR>
 " open nerdtree on start
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
+" autocmd VimEnter * NERDTree
+" autocmd VimEnter * wincmd p
 
 " fuzzy find 
 Bundle 'ctrlpvim/ctrlp.vim'
@@ -135,7 +144,7 @@ Bundle 'scrooloose/syntastic'
 Plugin 'fatih/vim-go'
 
 """"""""""""""""""""
-Plugin 'vim-latex/vim-latex'
+" Plugin 'vim-latex/vim-latex'
 Plugin 'vim-scripts/django.vim'
 
 """"""""""""""""""""
@@ -157,3 +166,9 @@ Plugin 'vim-scripts/SyntaxRange'
 " :VinariseDump object.obj
 """"""""""""""""""""
 Plugin 'shougo/vinarise.vim'
+
+" indent guide
+" Plugin 'Yggdroot/indentLine'
+set conceallevel=0
+
+Plugin 'Townk/vim-autoclose'
