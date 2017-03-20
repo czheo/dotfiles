@@ -30,7 +30,7 @@ ln -s ~/.dotfiles/gitignore ~/.gitignore
 
 # vim
 mkdir ~/.vim
-git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ln -s ~/.dotfiles/vimrc ~/.vimrc
 echo "Installing vim plugins ..."
 # vim +BundleInstall +qall > /dev/null 2>&1

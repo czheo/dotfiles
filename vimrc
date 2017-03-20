@@ -22,11 +22,13 @@ set list
 set listchars=tab:▸\ ,eol:¬
 
 " remember views
-au BufWritePost,BufLeave,WinLeave ?* mkview
-au BufWinEnter ?* silent loadview
+augroup RememberView
+  au BufWritePost,BufLeave,WinLeave ?* mkview
+  au BufWinEnter ?* silent loadview
+augroup END
 
 " change indent based on filetype
-au FileType python setl sw=4 sts=4 et
+" au FileType python setl sw=4 sts=4 et
 
 """""""""""""""""""""""""""""""""""""
 " key binding
@@ -54,13 +56,12 @@ nnoremap <c-i>  :set invnumber<CR>
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-let g:vundle_default_git_proto = 'git' " set default git protocol from https to git
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle.git'
+Plugin 'VundleVim/Vundle.vim'
 
 " My Bundles here:
 "
@@ -110,6 +111,7 @@ Bundle 'tomtom/tcomment_vim.git'
 
 " syntax highlight
 " Bundle 'kchmck/vim-coffee-script'
+Plugin 'tomlion/vim-solidity'
 Bundle 'tpope/vim-haml'
 Bundle 'elzr/vim-json'
 Bundle 'digitaltoad/vim-jade'
@@ -169,6 +171,11 @@ Plugin 'shougo/vinarise.vim'
 
 " indent guide
 " Plugin 'Yggdroot/indentLine'
-set conceallevel=0
+" set conceallevel=0
 
 Plugin 'Townk/vim-autoclose'
+Plugin 'vim-scripts/ingo-library'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
