@@ -10,6 +10,12 @@ set encoding=utf-8
 set backspace=2
 colorscheme desert
 
+" support ctags
+" ctags -R .
+" ctrl ]
+set autochdir
+set tags=tags
+
 " highlight line column
 augroup CursorLine
   au!
@@ -34,7 +40,7 @@ augroup END
 " key binding
 """""""""""""""""""""""""""""""""""""
 " make
-nnoremap <c-m>  :!make<CR>
+nnoremap mk  :!make<CR>
 
 " change directory
 nnoremap cd  :cd %:p:h<CR>
@@ -47,7 +53,7 @@ nnoremap tl  :tablast<CR>
 nnoremap td  :tabclose<CR>
 nnoremap tn  :tabnew<CR>
 
-" toggle nu
+" toggle nu with tab key
 nnoremap <c-i>  :set invnumber<CR>
 
 """""""""""""""""""""""""""""""""""""
@@ -99,12 +105,12 @@ nnoremap <silent> <c-n>  :NERDTreeToggle<CR>
 " autocmd VimEnter * NERDTree
 " autocmd VimEnter * wincmd p
 
-" fuzzy find 
+" fuzzy find with ctrl p
 Bundle 'ctrlpvim/ctrlp.vim'
 
 """"""""""""""""""""
 
-" comment out plugin
+" comment out plugin with ctrl -
 Bundle 'tomtom/tcomment_vim.git'
 
 """"""""""""""""""""
@@ -123,6 +129,9 @@ Plugin 'vim-scripts/Vim-R-plugin'
 Plugin 'rust-lang/rust.vim'
 let g:vimrplugin_assign = 0
 let g:jsx_ext_required = 0
+Plugin 'fatih/vim-go'
+Plugin 'vim-scripts/django.vim'
+" Plugin 'vim-latex/vim-latex'
 
 """"""""""""""""""""
 
@@ -143,13 +152,6 @@ Bundle 'scrooloose/syntastic'
 " Bundle 'Valloric/YouCompleteMe'
 
 """"""""""""""""""""
-Plugin 'fatih/vim-go'
-
-""""""""""""""""""""
-" Plugin 'vim-latex/vim-latex'
-Plugin 'vim-scripts/django.vim'
-
-""""""""""""""""""""
 " lisp interactive mode
 Plugin 'jpalardy/vim-slime'
 let g:slime_target = "tmux"
@@ -157,8 +159,11 @@ let g:slime_python_ipython = 1
 let g:slime_default_config = {"socket_name": "default", "target_pane": "1"}
 
 """"""""""""""""""""
+nnoremap <silent> tag  :TlistToggle<CR>
 Plugin 'vim-scripts/taglist.vim'
 
+""""""""""""""""""""
+" partial syntax highlight such as JS in HTML
 """"""""""""""""""""
 Plugin 'vim-scripts/SyntaxRange'
 
@@ -169,12 +174,10 @@ Plugin 'vim-scripts/SyntaxRange'
 """"""""""""""""""""
 Plugin 'shougo/vinarise.vim'
 
-" indent guide
-" Plugin 'Yggdroot/indentLine'
-" set conceallevel=0
-
-Plugin 'Townk/vim-autoclose'
-Plugin 'vim-scripts/ingo-library'
+""""""""""""""""""""
+" auto close () "" and etc.
+""""""""""""""""""""
+Plugin 'vim-scripts/AutoClose'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
