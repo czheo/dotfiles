@@ -131,6 +131,7 @@ let g:vimrplugin_assign = 0
 let g:jsx_ext_required = 0
 Plugin 'fatih/vim-go'
 Plugin 'vim-scripts/django.vim'
+Plugin 'posva/vim-vue'
 " Plugin 'vim-latex/vim-latex'
 
 """"""""""""""""""""
@@ -177,7 +178,7 @@ Plugin 'shougo/vinarise.vim'
 """"""""""""""""""""
 " auto close () "" and etc.
 """"""""""""""""""""
-Plugin 'vim-scripts/AutoClose'
+" Plugin 'vim-scripts/AutoClose'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

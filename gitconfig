@@ -1,14 +1,17 @@
 [user]
-	name = czheo
-	email = czheo1987@gmail.com
+  name = czheo
+  email = czheo1987@gmail.com
 [color]
-	ui = true
+  ui = true
 [alias]
-	co = checkout
-	ci = commit
-	br = branch
-	st = status
+  co = checkout
+  ci = commit
+  br = branch
+  st = status
+  l = log --graph --oneline --decorate
+  ll = log --graph --oneline --decorate --branches --tags
+  lll = log --graph --oneline --decorate --all
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 [core]
-	excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore

@@ -11,12 +11,13 @@ elif [ `uname` = "Darwin" -o `uname` = "FreeBSD" ];then
 fi
 alias l='ls'
 alias la='ls -a'
-alias ll='ls -l'
-alias lla='ls -al'
+alias ll='ls -lh'
+alias lla='ls -alh'
 alias v='vim'
 alias vi='vim'
 alias md='mkdir'
 alias rmd='rm -rvf'
+alias em='emacs'
 
 # prompt
 intro="\[\033["
