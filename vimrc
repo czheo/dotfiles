@@ -53,8 +53,8 @@ nnoremap tl  :tablast<CR>
 nnoremap td  :tabclose<CR>
 nnoremap tn  :tabnew<CR>
 
-" toggle nu with tab key
-nnoremap <c-i>  :set invnumber<CR>
+" toggle line numbers
+nnoremap nu  :set invnumber<CR>
 
 """""""""""""""""""""""""""""""""""""
 " vundle configuration
