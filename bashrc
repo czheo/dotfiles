@@ -19,6 +19,12 @@ alias md='mkdir'
 alias rmd='rm -rvf'
 alias em='emacs'
 
+# helper functions
+function crun {
+  rm -rf $1;
+  make $1 && ./$1;
+}
+
 # prompt
 intro="\[\033["
 outro="\]"

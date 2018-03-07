@@ -14,7 +14,7 @@ colorscheme desert
 " ctags -R .
 " ctrl ]
 set autochdir
-set tags=tags
+set tags=./tags,tags;$HOME
 
 " highlight line column
 augroup CursorLine
@@ -101,6 +101,7 @@ filetype plugin on     " required!
 " file tree plugin
 Bundle 'scrooloose/nerdtree.git'
 nnoremap <silent> <c-n>  :NERDTreeToggle<CR>
+nnoremap <silent> <c-m>  :NERDTreeFind<CR>
 " open nerdtree on start
 " autocmd VimEnter * NERDTree
 " autocmd VimEnter * wincmd p
@@ -174,6 +175,7 @@ Plugin 'vim-scripts/SyntaxRange'
 " :VinariseDump object.obj
 """"""""""""""""""""
 Plugin 'shougo/vinarise.vim'
+
 
 """"""""""""""""""""
 " auto close () "" and etc.
