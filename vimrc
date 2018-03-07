@@ -115,7 +115,12 @@ Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'tomtom/tcomment_vim.git'
 
 """"""""""""""""""""
+" open shell in vim
+" shortcut: \sh
+Bundle 'jewes/Conque-Shell'
+nnoremap <leader>sh :ConqueTerm bash<CR>
 
+""""""""""""""""""""
 " syntax highlight
 " Bundle 'kchmck/vim-coffee-script'
 Plugin 'tomlion/vim-solidity'
