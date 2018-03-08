@@ -1,20 +1,28 @@
 """""""""""""""""""""""""""""""""""""
+" quick memos
+"""""""""""""""""""""""""""""""""""""
+" viw = select a word
+" U = upper case in visual mode
+
+"""""""""""""""""""""""""""""""""""""
 " basic vim configuration
 """""""""""""""""""""""""""""""""""""
 syntax on
-set nu
-set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-set ai
-set ruler
+set number " show line number
+set wrap " wrap long lines
+set tabstop=2 softtabstop=2 shiftwidth=2 backspace=2 expandtab
+set shiftround " fix tab smartly
+set showmatch " briefly move back to the matching (
+set ai " auto indent
+set ruler " show cursor position at bottom
 set encoding=utf-8
-set backspace=2
 colorscheme desert
 
 " support ctags
 " ctags -R .
 " ctrl ]
-set autochdir
-set tags=./tags,tags;$HOME
+set autochdir " change dir when open a file
+set tags=./tags,tags;$HOME " search tags file
 
 " highlight line column
 augroup CursorLine
@@ -37,13 +45,25 @@ augroup END
 " au FileType python setl sw=4 sts=4 et
 
 """""""""""""""""""""""""""""""""""""
-" key binding
+" key bindings
 """""""""""""""""""""""""""""""""""""
+" move line downward
+nnoremap - ddp
+nnoremap = ddkp
+
+" delete a line in insert mode
+inoremap <c-d> <esc>ddi
+
+" source vimrc
+nnoremap <leader>ev :vs $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+
 " make
 nnoremap mk  :!make<CR>
 
 " change directory
-nnoremap cd  :cd %:p:h<CR>
+" nnoremap cd  :cd %:p:h<CR>
 
 " tab
 nnoremap th  :tabfirst<CR>
@@ -54,7 +74,7 @@ nnoremap td  :tabclose<CR>
 nnoremap tn  :tabnew<CR>
 
 " toggle line numbers
-nnoremap nu  :set invnumber<CR>
+nnoremap <leader>nu  :set nu!<CR>
 
 """""""""""""""""""""""""""""""""""""
 " vundle configuration
