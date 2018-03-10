@@ -54,6 +54,10 @@ nnoremap = ddkp
 " delete a line in insert mode
 inoremap <c-d> <esc>ddi
 
+" quote a selected block
+vnoremap \" <esc>`>a"<esc>`<i"<esc>
+vnoremap \' <esc>`>a'<esc>`<i'<esc>
+
 " source vimrc
 nnoremap <leader>ev :vs $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
