@@ -49,19 +49,7 @@ augroup END
 """""""""""""""""""""""""""""""""""""
 " move line downward
 nnoremap - ddp
-nnoremap = ddkp
-
-" delete a line in insert mode
-inoremap <c-d> <esc>ddi
-
-" quote a selected block
-vnoremap \" <esc>`>a"<esc>`<i"<esc>
-vnoremap \' <esc>`>a'<esc>`<i'<esc>
-
-" source vimrc
-nnoremap <leader>ev :vs $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
-
+nnoremap = ddkkp
 
 " make
 nnoremap mk  :!make<CR>
@@ -77,8 +65,22 @@ nnoremap tl  :tablast<CR>
 nnoremap td  :tabclose<CR>
 nnoremap tn  :tabnew<CR>
 
+" delete a line in insert mode
+inoremap <c-d> <esc>ddi
+
+" quote a selected block
+vnoremap <leader>" <esc>`>a"<esc>`<i"<esc>
+vnoremap <leader>' <esc>`>a'<esc>`<i'<esc>
+
+" source vimrc
+nnoremap <leader>ev :vs $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
 " toggle line numbers
 nnoremap <leader>nu  :set nu!<CR>
+
+" toggle spell check
+nnoremap <leader>sp :set spell!<cr>
 
 """""""""""""""""""""""""""""""""""""
 " vundle configuration
@@ -204,6 +206,7 @@ Plugin 'vim-scripts/SyntaxRange'
 " :VinariseDump object.obj
 """"""""""""""""""""
 Plugin 'shougo/vinarise.vim'
+nnoremap <leader>bin  :Vinarise<CR>
 
 
 """"""""""""""""""""
