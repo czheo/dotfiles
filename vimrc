@@ -21,7 +21,7 @@ colorscheme desert
 " support ctags
 " ctags -R .
 " ctrl ]
-set autochdir " change dir when open a file
+" set autochdir " change dir when open a file
 set tags=./tags,tags;$HOME " search tags file
 
 " highlight line column
@@ -81,6 +81,47 @@ nnoremap <leader>nu  :set nu!<CR>
 
 " toggle spell check
 nnoremap <leader>sp :set spell!<cr>
+
+" BundleInstall/BundleClean
+nnoremap <leader>bi :BundleInstall<cr>
+nnoremap <leader>bc :BundleClean<cr>
+
+"""""""""""""""""""""""""""""""""""""
+" cscope helper
+" reference: http://cscope.sourceforge.net/cscope_maps.vim
+"""""""""""""""""""""""""""""""""""""
+if has("cscope")
+  """"""""""""" Standard cscope/vim boilerplate
+  " use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
+  set cscopetag
+
+  " check cscope for definition of a symbol before checking ctags: set to 1
+  " if you want the reverse search order.
+  set csto=0
+
+  " add any cscope database in current directory
+  if filereadable("cscope.out")
+    cs add cscope.out
+  " else add the database pointed to by environment variable
+  elseif $CSCOPE_DB != ""
+    cs add $CSCOPE_DB
+  endif
+
+  " show msg when any other cscope db added
+  set cscopeverbose
+
+  "   's'   symbol: find all references to the token under cursor
+  "   'g'   global: find global definition(s) of the token under cursor
+  "   'c'   calls:  find all calls to the function name under cursor
+  "   't'   text:   find all instances of the text under cursor
+  "   'e'   egrep:  egrep search for the word under cursor
+  "   'f'   file:   open the filename under cursor
+  "   'i'   includes: find files that include the filename under cursor
+  "   'd'   called: find functions that function under cursor calls
+  nnoremap <leader>fs :cs find s <C-R>=expand("<cword>")<CR><CR>
+  nnoremap <leader>fc :cs find c <C-R>=expand("<cword>")<CR><CR>
+  nnoremap <leader>fd :cs find d <C-R>=expand("<cword>")<CR><CR>
+endif
 
 """""""""""""""""""""""""""""""""""""
 " vundle configuration
