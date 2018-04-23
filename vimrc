@@ -186,11 +186,14 @@ Bundle 'scrooloose/syntastic'
 
 """"""""""""""""""""
 " lisp interactive mode
+""""""""""""""""""""
 Plugin 'jpalardy/vim-slime'
 let g:slime_target = "tmux"
 let g:slime_python_ipython = 1
 let g:slime_default_config = {"socket_name": "default", "target_pane": "1"}
 
+""""""""""""""""""""
+" list tags 
 """"""""""""""""""""
 nnoremap <silent> tag  :TlistToggle<CR>
 Plugin 'vim-scripts/taglist.vim'
@@ -207,7 +210,6 @@ Plugin 'vim-scripts/SyntaxRange'
 """"""""""""""""""""
 Plugin 'shougo/vinarise.vim'
 nnoremap <leader>bin  :Vinarise<CR>
-
 
 """"""""""""""""""""
 " auto close () "" and etc.
