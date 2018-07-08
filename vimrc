@@ -8,15 +8,25 @@
 " basic vim configuration
 """""""""""""""""""""""""""""""""""""
 syntax on
-set number " show line number
-set wrap " wrap long lines
-set tabstop=2 softtabstop=2 shiftwidth=2 backspace=2 expandtab
-set shiftround " fix tab smartly
-set showmatch " briefly move back to the matching (
-set ai " auto indent
-set ruler " show cursor position at bottom
 set encoding=utf-8
 colorscheme desert
+
+set number " show line number
+set wrap " wrap long lines
+set ruler " show cursor position at bottom
+
+set tabstop=2 softtabstop=2 shiftwidth=2 backspace=2 expandtab
+set shiftround " fix tab smartly
+set ai " auto indent
+
+set incsearch " incremental search
+set hlsearch " highlight search, :noh to unhighlight
+set ignorecase smartcase " search case-sensitive only if there's upper-case
+
+set showmatch " briefly move back to the matching (
+set matchtime=3
+
+set laststatus=2 " always show status line
 
 " support ctags
 " ctags -R .
@@ -185,7 +195,7 @@ Bundle 'tomtom/tcomment_vim.git'
 " open shell in vim
 " shortcut: \sh
 Bundle 'jewes/Conque-Shell'
-nnoremap <leader>sh :ConqueTerm bash<CR>
+nnoremap <leader>sh :ConqueTerm bash<CR><ESC>:set nocursorline nolist<CR>a
 
 """"""""""""""""""""
 " syntax highlight
@@ -196,7 +206,7 @@ Bundle 'elzr/vim-json'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'vim-scripts/vim-coffee-script'
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+" Plugin 'plasticboy/vim-markdown'
 Plugin 'mxw/vim-jsx'
 Plugin 'vim-scripts/Vim-R-plugin'
 Plugin 'rust-lang/rust.vim'
