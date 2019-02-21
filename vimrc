@@ -1,8 +1,9 @@
 """""""""""""""""""""""""""""""""""""
 " quick memos
 """""""""""""""""""""""""""""""""""""
-" viw = select a word
-" U = upper case in visual mode
+" viw   = select a word
+" U     = upper case in visual mode
+" :term = open terminal
 
 """""""""""""""""""""""""""""""""""""
 " basic vim configuration
@@ -12,21 +13,21 @@ set encoding=utf-8
 colorscheme desert
 
 set number " show line number
-set wrap " wrap long lines
-set ruler " show cursor position at bottom
+set wrap   " wrap long lines
+set ruler  " show cursor position at bottom
 
 set tabstop=2 softtabstop=2 shiftwidth=2 backspace=2 expandtab
-set shiftround " fix tab smartly
-set ai " auto indent
+set shiftround           " fix tab smartly
+set ai                   " auto indent
 
-set incsearch " incremental search
-set hlsearch " highlight search, :noh to unhighlight
+set incsearch            " incremental search
+set hlsearch             " highlight search, :noh to unhighlight
 set ignorecase smartcase " search case-sensitive only if there's upper-case
 
-set showmatch " briefly move back to the matching (
+set showmatch            " briefly move back to the matching (
 set matchtime=3
 
-set laststatus=2 " always show status line
+set laststatus=2         " always show status line
 
 " support ctags
 " ctags -R .
@@ -75,8 +76,9 @@ nnoremap tl  :tablast<CR>
 nnoremap td  :tabclose<CR>
 nnoremap tn  :tabnew<CR>
 
+
 " delete a line in insert mode
-inoremap <c-d> <esc>ddi
+inoremap <c-d> <esc>ddO
 
 " quote a selected block
 vnoremap <leader>" <esc>`>a"<esc>`<i"<esc>
@@ -175,7 +177,9 @@ filetype plugin on     " required!
 " vundle plugins
 """""""""""""""""""""""""""""""""""""
 
-" file tree plugin
+"""""""""""""""""""""""""""""""""""""
+" file tree with ctrl n
+"""""""""""""""""""""""""""""""""""""
 Bundle 'scrooloose/nerdtree.git'
 nnoremap <silent> <c-n>  :NERDTreeToggle<CR>
 nnoremap <silent> <c-m>  :NERDTreeFind<CR>
@@ -183,29 +187,32 @@ nnoremap <silent> <c-m>  :NERDTreeFind<CR>
 " autocmd VimEnter * NERDTree
 " autocmd VimEnter * wincmd p
 
+""""""""""""""""""""
 " fuzzy find with ctrl p
+""""""""""""""""""""
 Bundle 'ctrlpvim/ctrlp.vim'
 
 """"""""""""""""""""
-
 " comment out plugin with ctrl -
+""""""""""""""""""""
 Bundle 'tomtom/tcomment_vim.git'
 
 """"""""""""""""""""
 " open shell in vim
 " shortcut: \sh
+""""""""""""""""""""
 Bundle 'jewes/Conque-Shell'
 nnoremap <leader>sh :ConqueTerm bash<CR><ESC>:set nocursorline nolist<CR>a
 
 """"""""""""""""""""
 " syntax highlight
+""""""""""""""""""""
 " Bundle 'kchmck/vim-coffee-script'
 Plugin 'tomlion/vim-solidity'
 Bundle 'tpope/vim-haml'
 Bundle 'elzr/vim-json'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'vim-scripts/vim-coffee-script'
-Plugin 'godlygeek/tabular'
 " Plugin 'plasticboy/vim-markdown'
 Plugin 'mxw/vim-jsx'
 Plugin 'vim-scripts/Vim-R-plugin'
@@ -218,15 +225,28 @@ Plugin 'posva/vim-vue'
 " Plugin 'vim-latex/vim-latex'
 
 """"""""""""""""""""
-
 " write html faster
+""""""""""""""""""""
 Bundle 'rstacruz/sparkup.git', {'rtp': 'vim/'} 
 " set sparkup shortcut
 let g:sparkupNextMapping = '<c-x>'
 
 """"""""""""""""""""
+" align text
+" :Tab /=
+""""""""""""""""""""
+Plugin 'godlygeek/tabular'
 
+""""""""""""""""""""
+" edit Table 
+" \tm = toggle table mode
+" :Tableize /, = make csv to table
+""""""""""""""""""""
+Plugin 'dhruvasagar/vim-table-mode'
+
+""""""""""""""""""""
 " syntax checker
+""""""""""""""""""""
 " npm install -g jshint for javascript
 Bundle 'vim-syntastic/syntastic'
 set statusline+=%#warningmsg#
@@ -241,7 +261,7 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
 """"""""""""""""""""
 " code completion
-" https://github.com/Valloric/YouCompleteMe
+""""""""""""""""""""
 " Bundle 'Valloric/YouCompleteMe'
 
 """"""""""""""""""""
