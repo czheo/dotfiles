@@ -59,8 +59,8 @@ augroup END
 " key bindings
 """""""""""""""""""""""""""""""""""""
 " move line downward
-nnoremap - ddp
-nnoremap = ddkkp
+nnoremap - :move +1<CR>
+nnoremap = :move -2<CR>
 
 " make
 nnoremap mk  :!make<CR>
