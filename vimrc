@@ -4,6 +4,8 @@
 " viw   = select a word
 " U     = upper case in visual mode
 " :term = open terminal
+" term scrol: <c-w> N
+" switch window: <c-w> x/r
 
 """""""""""""""""""""""""""""""""""""
 " basic vim configuration
@@ -76,6 +78,10 @@ nnoremap tl  :tablast<CR>
 nnoremap td  :tabclose<CR>
 nnoremap tn  :tabnew<CR>
 
+" auto-complete parens
+:inoremap ( ()<esc>i
+:inoremap { {}<esc>i
+:inoremap [ []<esc>i
 
 " delete a line in insert mode
 inoremap <c-d> <esc>ddO
@@ -258,6 +264,10 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+
+" ctrl-s
+nnoremap <silent> <c-x> :SyntasticToggleMode<CR>
+
 
 """"""""""""""""""""
 " code completion
