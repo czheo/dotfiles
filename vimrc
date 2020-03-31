@@ -1,11 +1,13 @@
 """""""""""""""""""""""""""""""""""""
 " quick memos
 """""""""""""""""""""""""""""""""""""
-" viw   = select a word
+" viw   = select a word (i = inner)
+" vi"   = select in quotes
+" va"   = select including quotes (a = all?)
 " U     = upper case in visual mode
 " :term = open terminal
-" term scrol: <c-w> N
-" switch window: <c-w> x/r
+" term scroll: <c-w> N
+" swap window: <c-w> x/r
 
 """""""""""""""""""""""""""""""""""""
 " basic vim configuration
@@ -77,11 +79,6 @@ nnoremap tj  :tabprev<CR>
 nnoremap tl  :tablast<CR>
 nnoremap td  :tabclose<CR>
 nnoremap tn  :tabnew<CR>
-
-" auto-complete parens
-:inoremap ( ()<esc>i
-:inoremap { {}<esc>i
-:inoremap [ []<esc>i
 
 " delete a line in insert mode
 inoremap <c-d> <esc>ddO
@@ -204,13 +201,6 @@ Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'tomtom/tcomment_vim.git'
 
 """"""""""""""""""""
-" open shell in vim
-" shortcut: \sh
-""""""""""""""""""""
-Bundle 'jewes/Conque-Shell'
-nnoremap <leader>sh :ConqueTerm bash<CR><ESC>:set nocursorline nolist<CR>a
-
-""""""""""""""""""""
 " syntax highlight
 """"""""""""""""""""
 " Bundle 'kchmck/vim-coffee-script'
@@ -302,9 +292,17 @@ Plugin 'shougo/vinarise.vim'
 nnoremap <leader>bin  :Vinarise<CR>
 
 """"""""""""""""""""
+" surround selection
+" cs"'  Change Surround from " to '
+" ds"   Delete Surround of "
+" S     in visual mode
+""""""""""""""""""""
+Plugin 'tpope/vim-surround'
+
+""""""""""""""""""""
 " auto close () "" and etc.
 """"""""""""""""""""
-" Plugin 'vim-scripts/AutoClose'
+Plugin 'vim-scripts/AutoClose'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
