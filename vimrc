@@ -8,6 +8,7 @@
 " :term = open terminal
 " term scroll: <c-w> N
 " swap window: <c-w> x/r
+" prev window: <c-w> p
 
 """""""""""""""""""""""""""""""""""""
 " basic vim configuration
@@ -107,6 +108,9 @@ nnoremap <leader>nu  :set nu!<CR>
 
 " toggle spell check
 nnoremap <leader>sp :set spell!<cr>
+
+" sum lines of numbers
+vnoremap sum :s/\n/+/<cr>$xyyddi<c-r>=<c-r>0<bs><cr><esc>
 
 " BundleInstall/BundleClean
 nnoremap <leader>bi :BundleInstall<cr>
