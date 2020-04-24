@@ -21,17 +21,17 @@ set wrap   " wrap long lines
 set ruler  " show cursor position at bottom
 
 set tabstop=2 softtabstop=2 shiftwidth=2 backspace=2 expandtab
-set shiftround           " fix tab smartly
-set ai                   " auto indent
+set shiftround            " fix tab smartly
+set ai                    " auto indent
 
-set incsearch            " incremental search
-set hlsearch             " highlight search, :noh to unhighlight
-set ignorecase smartcase " search case-sensitive only if there's upper-case
+set incsearch             " incremental search
+set hlsearch              " highlight search, :noh to unhighlight
+set ignorecase smartcase  " search case-sensitive only if there's upper-case
 
-set showmatch            " briefly move back to the matching (
+set showmatch             " briefly move back to the matching (
 set matchtime=3
 
-set laststatus=2         " always show status line
+set laststatus=2          " always show status line
 
 " support ctags
 " ctags -R .
@@ -80,12 +80,23 @@ nnoremap tl  :tablast<CR>
 nnoremap td  :tabclose<CR>
 nnoremap tn  :tabnew<CR>
 
+" term
+nnoremap tr  :term<CR>
+nnoremap vt  :vert term<CR>
+
 " delete a line in insert mode
 inoremap <c-d> <esc>ddO
 
 " quote a selected block
 vnoremap <leader>" <esc>`>a"<esc>`<i"<esc>
 vnoremap <leader>' <esc>`>a'<esc>`<i'<esc>
+
+" execute a line in terminal
+nnoremap tt  "ryy<c-w>p<c-w>"r<c-w>p
+" copy selection to terminal
+vnoremap tp "ry<c-w>p<c-w>"r
+" execute selection in terminal
+vnoremap tt "ry<c-w>p<c-w>"r<CR><c-w>p
 
 " source vimrc
 nnoremap <leader>ev :vs $MYVIMRC<cr>
@@ -302,7 +313,7 @@ Plugin 'tpope/vim-surround'
 """"""""""""""""""""
 " auto close () "" and etc.
 """"""""""""""""""""
-Plugin 'vim-scripts/AutoClose'
+" Plugin 'vim-scripts/AutoClose'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
