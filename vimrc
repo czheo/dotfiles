@@ -85,8 +85,8 @@ nnoremap td  :tabclose<CR>
 nnoremap tn  :tabnew<CR>
 
 " term
-nnoremap tr  :term<CR>
-nnoremap vt  :vert term<CR>
+nnoremap tr  :bel term<CR>
+nnoremap vt  :bel vert term<CR>
 
 " delete a line in insert mode
 inoremap <c-d> <esc>ddO
@@ -107,54 +107,13 @@ nnoremap <leader>ev :vs $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " toggle line numbers
-nnoremap <leader>nu  :set nu!<CR>
+nnoremap nu  :set nu!<CR>
 
 " toggle spell check
 nnoremap <leader>sp :set spell!<cr>
 
 " sum lines of numbers
 vnoremap sum :s/\n/+/<cr>$xyyddi<c-r>=<c-r>0<bs><cr><esc>
-
-" BundleInstall/BundleClean
-nnoremap <leader>bi :BundleInstall<cr>
-nnoremap <leader>bc :BundleClean<cr>
-
-"""""""""""""""""""""""""""""""""""""
-" cscope helper
-" reference: http://cscope.sourceforge.net/cscope_maps.vim
-"""""""""""""""""""""""""""""""""""""
-if has("cscope")
-  """"""""""""" Standard cscope/vim boilerplate
-  " use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
-  set cscopetag
-
-  " check cscope for definition of a symbol before checking ctags: set to 1
-  " if you want the reverse search order.
-  set csto=0
-
-  " add any cscope database in current directory
-  if filereadable("cscope.out")
-    cs add cscope.out
-  " else add the database pointed to by environment variable
-  elseif $CSCOPE_DB != ""
-    cs add $CSCOPE_DB
-  endif
-
-  " show msg when any other cscope db added
-  set cscopeverbose
-
-  "   's'   symbol: find all references to the token under cursor
-  "   'g'   global: find global definition(s) of the token under cursor
-  "   'c'   calls:  find all calls to the function name under cursor
-  "   't'   text:   find all instances of the text under cursor
-  "   'e'   egrep:  egrep search for the word under cursor
-  "   'f'   file:   open the filename under cursor
-  "   'i'   includes: find files that include the filename under cursor
-  "   'd'   called: find functions that function under cursor calls
-  nnoremap <leader>fs :cs find s <C-R>=expand("<cword>")<CR><CR>
-  nnoremap <leader>fc :cs find c <C-R>=expand("<cword>")<CR><CR>
-  nnoremap <leader>fd :cs find d <C-R>=expand("<cword>")<CR><CR>
-endif
 
 """""""""""""""""""""""""""""""""""""
 " vim-plug configuration
@@ -166,8 +125,8 @@ call plug#begin('~/.vim/plugged')
 
 " file tree with ctrl n
 Plug 'scrooloose/nerdtree'
-nnoremap <silent> <c-n>  :NERDTreeToggle<CR>
-nnoremap <silent> <c-m>  :NERDTreeFind<CR>
+nnoremap <silent><c-n>  :NERDTreeFind<CR>
+nnoremap <silent><c-n><c-n>  :NERDTreeToggle<CR>
 
 " fuzzy find with ctrl p
 Plug 'ctrlpvim/ctrlp.vim'
@@ -177,8 +136,6 @@ Plug 'tomtom/tcomment_vim'
 
 " write html faster
 Plug 'rstacruz/sparkup'
-" set sparkup shortcut
-let g:sparkupNextMapping = '<c-x>'
 
 " Interactive Coq Proofs in Vim
 Plug 'whonore/Coqtail'
@@ -218,6 +175,27 @@ nnoremap <leader>bin  :Vinarise<CR>
 " ds"   Delete Surround of "
 " S     in visual mode
 Plug 'tpope/vim-surround'
+
+" cscope
+Plug 'brookhong/cscope.vim'
+nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
+nnoremap <leader>l :call ToggleLocationList()<CR>
+" s: Find this C symbol
+nnoremap  <leader>fs :call CscopeFind('s', expand('<cword>'))<CR>
+" g: Find this definition
+nnoremap  <leader>fg :call CscopeFind('g', expand('<cword>'))<CR>
+" d: Find functions called by this function
+nnoremap  <leader>fd :call CscopeFind('d', expand('<cword>'))<CR>
+" c: Find functions calling this function
+nnoremap  <leader>fc :call CscopeFind('c', expand('<cword>'))<CR>
+" t: Find this text string
+nnoremap  <leader>ft :call CscopeFind('t', expand('<cword>'))<CR>
+" e: Find this egrep pattern
+nnoremap  <leader>fe :call CscopeFind('e', expand('<cword>'))<CR>
+" f: Find this file
+nnoremap  <leader>ff :call CscopeFind('f', expand('<cword>'))<CR>
+" i: Find files #including this file
+nnoremap  <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
 
 """"""""""""""""""""
 " syntax highlight
