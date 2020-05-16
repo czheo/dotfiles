@@ -30,14 +30,15 @@ ln -s ~/.dotfiles/gitignore ~/.gitignore
 
 # vim
 mkdir ~/.vim
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ln -s ~/.dotfiles/vimrc ~/.vimrc
 echo "Installing vim plugins ..."
-vim +BundleInstall +qall 2&> /dev/null
+vim +PlugInstall +qa 2&> /dev/null
 if [ $? ]; then
-    echo "successfully installed!" 
+    echo "Vim plugins installation succeeded" 
 else
-    echo "[ERROR] when runing \"vim +BundleInstall +qall > /dev/null 2>&1\""
+    echo "Vim plugins installation failed!!!" 
 fi
 
 # install bin

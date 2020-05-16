@@ -63,6 +63,9 @@ augroup END
 """""""""""""""""""""""""""""""""""""
 " key bindings
 """""""""""""""""""""""""""""""""""""
+" use , as leader key
+let mapleader = ","
+
 " move line downward
 nnoremap - :move +1<CR>
 nnoremap = :move -2<CR>
@@ -154,112 +157,44 @@ if has("cscope")
 endif
 
 """""""""""""""""""""""""""""""""""""
-" vundle configuration
+" vim-plug configuration
 """""""""""""""""""""""""""""""""""""
-set nocompatible               " be iMproved
-filetype off                   " required!
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle
-" required! 
-Plugin 'VundleVim/Vundle.vim'
-
-" My Bundles here:
-"
-" original repos on github
-" Bundle 'wookiehangover/jshint.vim'
-" Bundle 'tpope/vim-fugitive'
-" Bundle 'Lokaltog/vim-easymotion'
-" Bundle 'tpope/vim-rails.git'
-" vim-scripts repos
-" Bundle 'L9'
-" Bundle 'FuzzyFinder'
-" non github repos
-" Bundle 'git://git.wincent.com/command-t.git'
-" ...
-
-filetype plugin on     " required!
-"
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
-
-"""""""""""""""""""""""""""""""""""""
-" vundle plugins
-"""""""""""""""""""""""""""""""""""""
-
-"""""""""""""""""""""""""""""""""""""
 " file tree with ctrl n
-"""""""""""""""""""""""""""""""""""""
-Bundle 'scrooloose/nerdtree.git'
+Plug 'scrooloose/nerdtree'
 nnoremap <silent> <c-n>  :NERDTreeToggle<CR>
 nnoremap <silent> <c-m>  :NERDTreeFind<CR>
-" open nerdtree on start
-" autocmd VimEnter * NERDTree
-" autocmd VimEnter * wincmd p
 
-""""""""""""""""""""
 " fuzzy find with ctrl p
-""""""""""""""""""""
-Bundle 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
-""""""""""""""""""""
 " comment out plugin with ctrl -
-""""""""""""""""""""
-Bundle 'tomtom/tcomment_vim.git'
+Plug 'tomtom/tcomment_vim'
 
-""""""""""""""""""""
-" syntax highlight
-""""""""""""""""""""
-" Bundle 'kchmck/vim-coffee-script'
-Plugin 'tomlion/vim-solidity'
-Bundle 'tpope/vim-haml'
-Bundle 'elzr/vim-json'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'vim-scripts/vim-coffee-script'
-" Plugin 'plasticboy/vim-markdown'
-Plugin 'mxw/vim-jsx'
-Plugin 'vim-scripts/Vim-R-plugin'
-Plugin 'rust-lang/rust.vim'
-let g:vimrplugin_assign = 0
-let g:jsx_ext_required = 0
-Plugin 'fatih/vim-go'
-Plugin 'vim-scripts/django.vim'
-Plugin 'posva/vim-vue'
-" Plugin 'vim-latex/vim-latex'
-
-""""""""""""""""""""
 " write html faster
-""""""""""""""""""""
-Bundle 'rstacruz/sparkup.git', {'rtp': 'vim/'} 
+Plug 'rstacruz/sparkup'
 " set sparkup shortcut
 let g:sparkupNextMapping = '<c-x>'
 
-""""""""""""""""""""
+" Interactive Coq Proofs in Vim
+Plug 'whonore/Coqtail'
+Plug 'let-def/vimbufsync'
+
 " align text
 " :Tab /=
-""""""""""""""""""""
-Plugin 'godlygeek/tabular'
+Plug 'godlygeek/tabular'
 
-""""""""""""""""""""
 " edit Table 
 " \tm = toggle table mode
 " :Tableize /, = make csv to table
-""""""""""""""""""""
-Plugin 'dhruvasagar/vim-table-mode'
+Plug 'dhruvasagar/vim-table-mode'
 
-""""""""""""""""""""
 " syntax checker
-""""""""""""""""""""
-" npm install -g jshint for javascript
-Bundle 'vim-syntastic/syntastic'
+Plug 'vim-syntastic/syntastic'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -269,56 +204,26 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
-
 " ctrl-s
 nnoremap <silent> <c-x> :SyntasticToggleMode<CR>
 
-
-""""""""""""""""""""
-" code completion
-""""""""""""""""""""
-" Bundle 'Valloric/YouCompleteMe'
-
-""""""""""""""""""""
-" lisp interactive mode
-""""""""""""""""""""
-Plugin 'jpalardy/vim-slime'
-let g:slime_target = "tmux"
-let g:slime_python_ipython = 1
-let g:slime_default_config = {"socket_name": "default", "target_pane": "1"}
-
-""""""""""""""""""""
-" list tags 
-""""""""""""""""""""
-nnoremap <silent> tag  :TlistToggle<CR>
-Plugin 'vim-scripts/taglist.vim'
-
-""""""""""""""""""""
-" partial syntax highlight such as JS in HTML
-""""""""""""""""""""
-Plugin 'vim-scripts/SyntaxRange'
-
-""""""""""""""""""""
 " binary editor
 " :Vinarise binary.bin
 " :VinariseDump object.obj
-""""""""""""""""""""
-Plugin 'shougo/vinarise.vim'
+Plug 'shougo/vinarise.vim'
 nnoremap <leader>bin  :Vinarise<CR>
 
-""""""""""""""""""""
 " surround selection
 " cs"'  Change Surround from " to '
 " ds"   Delete Surround of "
 " S     in visual mode
-""""""""""""""""""""
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 
 """"""""""""""""""""
-" auto close () "" and etc.
+" syntax highlight
 """"""""""""""""""""
-" Plugin 'vim-scripts/AutoClose'
+Plug 'elzr/vim-json'
+" partial syntax highlight such as JS in HTML
+Plug 'vim-scripts/SyntaxRange'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()
