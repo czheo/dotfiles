@@ -65,3 +65,5 @@ fi
 if [ -f ~/.bashrc.local ]; then
      . ~/.bashrc.local
 fi
+
+export PATH=/Users/czheo/.local/bin:$PATH
