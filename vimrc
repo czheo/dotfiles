@@ -33,6 +33,7 @@ set showmatch             " briefly move back to the matching (
 set matchtime=3
 
 set laststatus=2          " always show status line
+set shortmess-=S          " show the total number of matches
 
 " support ctags
 " ctags -R .
@@ -203,5 +204,7 @@ nnoremap  <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
 Plug 'elzr/vim-json'
 " partial syntax highlight such as JS in HTML
 Plug 'vim-scripts/SyntaxRange'
+
+Plug 'idris-hackers/idris-vim'
 
 call plug#end()
