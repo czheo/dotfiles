@@ -137,6 +137,7 @@ Plug 'tomtom/tcomment_vim'
 
 " write html faster
 Plug 'rstacruz/sparkup'
+let g:sparkupNextMapping = '<c-m>'
 
 " Interactive Coq Proofs in Vim
 Plug 'whonore/Coqtail'
@@ -206,5 +207,6 @@ Plug 'elzr/vim-json'
 Plug 'vim-scripts/SyntaxRange'
 
 Plug 'idris-hackers/idris-vim'
+Plug 'cespare/vim-toml'
 
 call plug#end()
