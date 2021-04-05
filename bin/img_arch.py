@@ -9,13 +9,36 @@ except:
     import exiftool
 import argparse
 import filecmp
+from datetime import datetime
+import re
+from collections import Counter
+
+def similar(a, b):
+    diff = Counter(a) - Counter(b)
+    return sum(abs(v) for v in diff.values())
 
 def get_create_date(path, et):
-    fullpath = str(path)
-    if path.suffix.lower() == ".mov":
-        return et.get_tag("QuickTime:MediaCreateDate", fullpath)
-    else:
-        return et.get_tag("EXIF:CreateDate", fullpath)
+    metadata = et.get_metadata(str(path))
+    dates = []
+    for k, v in metadata.items():
+        lower_k = k.lower()
+        if 'date' in lower_k:
+            dt = to_datetime(v)
+            if dt is not None:
+                dates.append((similar(lower_k, 'create date'), dt))
+    return min(dates, default=(None ,None))[1]
+
+
+def to_datetime(date_str):
+    try:
+        fmt = '%Y:%m:%d %H:%M:%S'
+        pattern = re.compile(r'(\d{4}:\d{2}:\d{2} \d{2}:\d{2}:\d{2})')
+        matched = pattern.search(date_str)
+        s = matched.group()
+        return datetime.strptime(s, fmt)
+    except:
+        return None
+
 
 def main(args):
     setup(args)
@@ -34,24 +57,24 @@ def main(args):
                 continue
             create_date = get_create_date(path, et)
             if create_date:
-                year = create_date[:4]
-                month = create_date[5:7]
+                year = '%d' % create_date.year
+                month = '%02d' % create_date.month
                 output_path = os.path.join(output_dir, year, month, name)
-                safe_copy(path, output_path)
             else:
-                print(f"Cannot get create date: {path}")
+                output_path = os.path.join(output_dir, 'unsorted', name)
+            safe_copy(path, output_path)
 
 def safe_copy(frm, to):
     if not os.path.exists(to):
         to_dir = Path(to).parent
-        print(f"cp {frm} {to}")
-        os.system(f'mkdir -p {to_dir} && cp {frm} {to}')
+        print(f'cp "{frm}" "{to}"')
+        os.system(f'mkdir -p "{to_dir}" && cp "{frm}" "{to}"')
     else:
         if filecmp.cmp(frm, to):
             print(f"skipping since it's already copied: {frm}")
             if args.remove_old:
-                print(f"rm {frm}")
-                os.system(f"rm {frm}")
+                print(f'rm "{frm}"')
+                os.system(f'rm "{frm}"')
         else:
             safe_copy(frm, to + Path(to).suffix)
 
