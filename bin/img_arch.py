@@ -1,11 +1,11 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import sys
 import os
 from pathlib import Path
 try:
     import exiftool
 except:
-    os.system('pip install pyexiftool')
+    os.system('pip3 install pyexiftool')
     import exiftool
 import argparse
 import filecmp
@@ -59,7 +59,8 @@ def main(args):
             if create_date:
                 year = '%d' % create_date.year
                 month = '%02d' % create_date.month
-                output_path = os.path.join(output_dir, year, month, name)
+                day = '%02d' % create_date.day
+                output_path = os.path.join(output_dir, year, month + day, name)
             else:
                 output_path = os.path.join(output_dir, 'unsorted', name)
             safe_copy(path, output_path)
