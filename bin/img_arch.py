@@ -22,12 +22,22 @@ def get_create_date(path, et):
     dates = []
     for k, v in metadata.items():
         lower_k = k.lower()
-        if 'date' in lower_k:
+        if 'create' in lower_k and 'date' in lower_k:
             dt = to_datetime(v)
             if dt is not None:
                 dates.append((similar(lower_k, 'create date'), dt))
     return min(dates, default=(None ,None))[1]
 
+def get_date(path, et):
+    metadata = et.get_metadata(str(path))
+    dates = []
+    for k, v in metadata.items():
+        lower_k = k.lower()
+        if 'date' in lower_k:
+            dt = to_datetime(v)
+            if dt is not None:
+                dates.append((similar(lower_k, 'create date'), dt))
+    return min(dates, default=(None ,None))[1]
 
 def to_datetime(date_str):
     try:
@@ -62,7 +72,11 @@ def main(args):
                 day = '%02d' % create_date.day
                 output_path = os.path.join(output_dir, year, month + day, name)
             else:
-                output_path = os.path.join(output_dir, 'unsorted', name)
+                date = get_date(path, et)
+                year = '%d' % date.year
+                month = '%02d' % date.month
+                day = '%02d' % date.day
+                output_path = os.path.join(output_dir, 'unsorted', year, month + day, name)
             safe_copy(path, output_path)
 
 def safe_copy(frm, to):
