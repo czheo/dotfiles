@@ -53,10 +53,10 @@ set list
 set listchars=tab:▸\ ,eol:¬
 
 " remember views
-augroup RememberView
-  au BufWritePost,BufLeave,WinLeave ?* mkview
-  au BufWinEnter ?* silent loadview
-augroup END
+" augroup RememberView
+"   au BufWritePost,BufLeave,WinLeave ?* mkview
+"   au BufWinEnter ?* silent loadview
+" augroup END
 
 " change indent based on filetype
 " au FileType python setl sw=4 sts=4 et
@@ -131,6 +131,9 @@ nnoremap <silent><c-n><c-n>  :NERDTreeToggle<CR>
 
 " fuzzy find with ctrl p
 Plug 'ctrlpvim/ctrlp.vim'
+
+" automatically restoring file's cursor position and folding
+Plug 'vim-scripts/restore_view.vim'
 
 " comment out plugin with ctrl -
 Plug 'tomtom/tcomment_vim'
