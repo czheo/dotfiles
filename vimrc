@@ -67,6 +67,9 @@ set listchars=tab:▸\ ,eol:¬
 " use , as leader key
 let mapleader = ","
 
+" de-highlight selection
+nnoremap <leader><space> :noh<CR>
+
 " move line downward
 nnoremap - :move +1<CR>
 nnoremap = :move -2<CR>
