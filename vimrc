@@ -35,6 +35,11 @@ set matchtime=3
 set laststatus=2          " always show status line
 set shortmess-=S          " show the total number of matches
 
+" customize statusline
+set statusline=%f\ \|           " filename
+set statusline+=\ %p%%          " current register
+set statusline+=\ %{v:register} " current register
+
 " support ctags
 " ctags -R .
 " ctrl ]
