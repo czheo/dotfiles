@@ -10,7 +10,7 @@ if [ -e ~/.dotfiles ]; then
 fi
 
 # download src
-git clone git://github.com/czheo/dotfiles.git ~/.dotfiles || { echo "git clone failed!"; exit 1; }
+git clone https://github.com/czheo/dotfiles ~/.dotfiles || { echo "git clone failed!"; exit 1; }
 
 # install
 /bin/sh ~/.dotfiles/install-local.sh
