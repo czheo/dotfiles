@@ -124,6 +124,9 @@ nnoremap <leader>sp :set spell!<cr>
 " sum lines of numbers
 vnoremap sum :s/\n/+/<cr>$xyyddi<c-r>=<c-r>0<bs><cr><esc>
 
+" goto file in next split
+nnoremap <silent> gf :let mycurf=expand("<cfile>")<cr><c-w>p:execute("e ".mycurf)<cr>
+
 """""""""""""""""""""""""""""""""""""
 " vim-plug configuration
 """""""""""""""""""""""""""""""""""""
