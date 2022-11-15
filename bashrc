@@ -31,13 +31,14 @@ function crun {
 intro="\[\033["
 outro="\]"
 red=$intro"31m"$outro
+green=$intro"32m"$outro
 ylw=$intro"33m"$outro
 blue=$intro"34m"$outro
 clr=$intro"39;49;00m"$outro
 function __files() {
     ls -l | grep "^[-d]" | wc -l | tr -d " "
 }
-export PS1="${red}[\t]${ylw}[\u@\h]${blue}[\w]${red}\$(__git_ps1)${clr} \$(__files) files\n${ylw}:)${clr} "
+export PS1="${red}[\t]${ylw}[\u@\h]${green}[\w]${red}\$(__git_ps1)${clr} \$(__files) files\n${ylw}:)${clr} "
 export PS2='> '
 export PS4='+ '
 
