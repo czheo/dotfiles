@@ -180,6 +180,8 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 " ctrl-s
 nnoremap <silent> <c-x> :SyntasticToggleMode<CR>
 
+Plug 'rust-lang/rust.vim'
+
 " binary editor
 " :Vinarise binary.bin
 " :VinariseDump object.obj
