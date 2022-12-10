@@ -19,7 +19,6 @@ alias vi='vim'
 alias md='mkdir'
 alias rmd='rm -rvf'
 alias em='emacs'
-alias alias='alias | less'
 
 # helper functions
 function crun {
