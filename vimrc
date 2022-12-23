@@ -70,7 +70,7 @@ set listchars=tab:▸\ ,eol:¬
 " key bindings
 """""""""""""""""""""""""""""""""""""
 " use , as leader key
-let mapleader = ","
+let mapleader = ";"
 
 " de-highlight selection
 nnoremap <leader><space> :noh<CR>
@@ -94,8 +94,8 @@ nnoremap td  :tabclose<CR>
 nnoremap tn  :tabnew<CR>
 
 " term
-nnoremap tr  :bel term<CR>
-nnoremap vt  :bel vert term<CR>
+nnoremap <leader>t  :bel term<CR>
+nnoremap <leader>vt :bel vert term<CR>
 
 " delete a line in insert mode
 inoremap <c-d> <esc>ddO
@@ -140,6 +140,10 @@ Plug 'scrooloose/nerdtree'
 nnoremap <silent><c-n>  :NERDTreeFind<CR>
 nnoremap <silent><c-n><c-n>  :NERDTreeToggle<CR>
 
+" <leader><leader>w: go to word
+" <leader><leader>f{char}: go to searched char
+Plug 'easymotion/vim-easymotion'
+
 " fuzzy find with ctrl p
 Plug 'ctrlpvim/ctrlp.vim'
 
@@ -151,7 +155,6 @@ Plug 'tomtom/tcomment_vim'
 
 " write html faster
 Plug 'rstacruz/sparkup'
-let g:sparkupNextMapping = '<c-m>'
 
 " Interactive Coq Proofs in Vim
 Plug 'whonore/Coqtail'
