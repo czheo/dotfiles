@@ -15,3 +15,6 @@
   helper = osxkeychain
 [core]
   excludesfile = ~/.gitignore
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
