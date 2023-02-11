@@ -86,16 +86,18 @@ nnoremap mk  :!make<CR>
 " nnoremap cd  :cd %:p:h<CR>
 
 " tab
-nnoremap th  :tabfirst<CR>
-nnoremap tk  :tabnext<CR>
-nnoremap tj  :tabprev<CR>
-nnoremap tl  :tablast<CR>
-nnoremap td  :tabclose<CR>
+tnoremap <c-left> <c-w>:tabprev<CR>
+inoremap <c-left> <esc>:tabprev<CR>
+nnoremap <c-left> :tabprev<CR>
+tnoremap <c-right> <c-w>:tabnext<CR>
+inoremap <c-right> <esc>:tabnext<CR>
+nnoremap <c-right> :tabnext<CR>
 nnoremap tn  :tabnew<CR>
 
 " term
 nnoremap <leader>t  :bel term<CR>
 nnoremap <leader>vt :bel vert term<CR>
+nnoremap <leader>nt :tab term<CR>
 
 " delete a line in insert mode
 inoremap <c-d> <esc>ddO
