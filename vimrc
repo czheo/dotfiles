@@ -220,6 +220,8 @@ nnoremap  <leader>ff :call CscopeFind('f', expand('<cword>'))<CR>
 " i: Find files #including this file
 nnoremap  <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
 
+Plug 'github/copilot.vim'
+
 """"""""""""""""""""
 " syntax highlight
 """"""""""""""""""""
