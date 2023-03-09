@@ -3,6 +3,8 @@ export LANG=en_US.UTF-8
 export PATH=~/bin:$PATH
 export EDITOR='vim'
 export LESS=-Ri # recognize colorized output from grep and case-insensitive
+export HISTSIZE=99999
+export HISTFILESIZE=99999
 
 # alias
 if [ `uname` = "Linux" ];then
