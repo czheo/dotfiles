@@ -114,7 +114,7 @@ vnoremap tp "ry<c-w>p<c-w>"r
 vnoremap tt "ry<c-w>p<c-w>"r<CR><c-w>p
 
 " source vimrc
-nnoremap <leader>ev :vs $MYVIMRC<cr>
+nnoremap <leader>ev :tabnew $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " toggle line numbers
