@@ -86,12 +86,12 @@ nnoremap mk  :!make<CR>
 " nnoremap cd  :cd %:p:h<CR>
 
 " tab
-tnoremap <c-left> <c-w>:tabprev<CR>
-inoremap <c-left> <esc>:tabprev<CR>
-nnoremap <c-left> :tabprev<CR>
-tnoremap <c-right> <c-w>:tabnext<CR>
-inoremap <c-right> <esc>:tabnext<CR>
-nnoremap <c-right> :tabnext<CR>
+tnoremap <c-h> <c-w>:tabprev<CR>
+inoremap <c-h> <esc>:tabprev<CR>
+nnoremap <c-h> :tabprev<CR>
+tnoremap <c-l> <c-w>:tabnext<CR>
+inoremap <c-l> <esc>:tabnext<CR>
+nnoremap <c-l> :tabnext<CR>
 nnoremap tn  :tabnew<CR>
 
 " term
@@ -117,8 +117,8 @@ vnoremap tt "ry<c-w>p<c-w>"r<CR><c-w>p
 nnoremap <leader>ev :tabnew $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-" toggle line numbers
-nnoremap nu  :set nu!<CR>
+" clean line number and hidden characters
+nnoremap <leader>cl  :set nu! list!<CR>
 
 " toggle spell check
 nnoremap <leader>sp :set spell!<cr>
@@ -180,11 +180,55 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" cpp
 let g:syntastic_cpp_compiler = 'g++'
-let g:syntastic_cpp_compiler_options = '-Wall -std=c++17'
+let g:syntastic_cpp_compiler_options = '-Wall -std=c++11'
+" python
+" let g:syntastic_python_checkers = ['mypy']
 " ctrl-s
 nnoremap <silent> <c-x> :SyntasticToggleMode<CR>
 
+" Language Server Protocol
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+if executable('pylsp')
+    " pip install python-lsp-server
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pylsp',
+        \ 'cmd': {server_info->['pylsp']},
+        \ 'allowlist': ['python'],
+        \ })
+endif
+
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gs <plug>(lsp-document-symbol-search)
+    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+    nmap <buffer> gr <plug>(lsp-references)
+    nmap <buffer> gi <plug>(lsp-implementation)
+    nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+    nmap <buffer> K <plug>(lsp-hover)
+
+    let g:lsp_format_sync_timeout = 1000
+    autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+
+    " refer to doc to add more commands
+endfunction
+
+augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
+" Rust
 Plug 'rust-lang/rust.vim'
 
 " binary editor
@@ -231,5 +275,8 @@ Plug 'vim-scripts/SyntaxRange'
 
 Plug 'idris-hackers/idris-vim'
 Plug 'cespare/vim-toml'
+
+Plug 'czheo/mojo.vim'
+" Plug '~/dev/mojo.vim'
 
 call plug#end()
