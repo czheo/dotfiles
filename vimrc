@@ -22,6 +22,7 @@ set wrap   " wrap long lines
 set ruler  " show cursor position at bottom
 
 set tabstop=2 softtabstop=2 shiftwidth=2 backspace=2 expandtab
+autocmd FileType mojo setlocal tabstop=4 softtabstop=4 shiftwidth=4
 set shiftround            " fix tab smartly
 set ai                    " auto indent
 set si                    " smart indent
