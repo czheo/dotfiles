@@ -24,6 +24,7 @@ set ruler  " show cursor position at bottom
 set tabstop=2 softtabstop=2 shiftwidth=2 backspace=2 expandtab
 set shiftround            " fix tab smartly
 set ai                    " auto indent
+set si                    " smart indent
 
 set incsearch             " incremental search
 set hlsearch              " highlight search, :noh to unhighlight
@@ -57,15 +58,6 @@ augroup END
 set list
 set listchars=tab:▸\ ,eol:¬
 
-" remember views
-" augroup RememberView
-"   au BufWritePost,BufLeave,WinLeave ?* mkview
-"   au BufWinEnter ?* silent loadview
-" augroup END
-
-" change indent based on filetype
-" au FileType python setl sw=4 sts=4 et
-
 """""""""""""""""""""""""""""""""""""
 " key bindings
 """""""""""""""""""""""""""""""""""""
@@ -86,13 +78,15 @@ nnoremap mk  :!make<CR>
 " nnoremap cd  :cd %:p:h<CR>
 
 " tab
-tnoremap <c-h> <c-w>:tabprev<CR>
-inoremap <c-h> <esc>:tabprev<CR>
-nnoremap <c-h> :tabprev<CR>
-tnoremap <c-l> <c-w>:tabnext<CR>
-inoremap <c-l> <esc>:tabnext<CR>
-nnoremap <c-l> :tabnext<CR>
 nnoremap tn  :tabnew<CR>
+" go prev
+tnoremap <c-h><c-h> <c-w>:tabprev<CR>
+inoremap <c-h><c-h> <esc>:tabprev<CR>
+nnoremap <c-h><c-h> :tabprev<CR>
+" go next
+tnoremap <c-l><c-l> <c-w>:tabnext<CR>
+inoremap <c-l><c-l> <esc>:tabnext<CR>
+nnoremap <c-l><c-l> :tabnext<CR>
 
 " term
 nnoremap <leader>t  :bel term<CR>
@@ -277,6 +271,5 @@ Plug 'idris-hackers/idris-vim'
 Plug 'cespare/vim-toml'
 
 Plug 'czheo/mojo.vim'
-" Plug '~/dev/mojo.vim'
 
 call plug#end()
