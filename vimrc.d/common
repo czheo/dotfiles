@@ -1,0 +1,126 @@
+"""""""""""""""""""""""""""""""""""""""""""""
+" Common config shared between Vim and NeoVim
+"""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""
+" quick memos
+"""""""""""""""""""""""""""""""""""""
+" viw   = select a word (i = inner)
+" vi"   = select in quotes
+" va"   = select including quotes (a = all?)
+" U     = upper case in visual mode
+" :term = open terminal
+" term scroll: <c-w> N
+" swap window: <c-w> x/r
+" prev window: <c-w> p
+syntax on
+set encoding=utf-8
+colorscheme desert
+
+set number " show line number
+set wrap   " wrap long lines
+set ruler  " show cursor position at bottom
+
+set tabstop=2 softtabstop=2 shiftwidth=2 backspace=2 expandtab
+autocmd FileType mojo setlocal tabstop=4 softtabstop=4 shiftwidth=4
+set shiftround            " fix tab smartly
+set ai                    " auto indent
+set si                    " smart indent
+
+set incsearch             " incremental search
+set hlsearch              " highlight search, :noh to unhighlight
+set ignorecase smartcase  " search case-sensitive only if there's upper-case
+
+set showmatch             " briefly move back to the matching (
+set matchtime=3
+
+set laststatus=2          " always show status line
+set shortmess-=S          " show the total number of matches
+
+" customize statusline
+set statusline=%f\ \|               " filename
+set statusline+=\ %{getcwd()}\ \|   " current dir
+set statusline+=\ %p%%\ \|          " current percentage
+set statusline+=\ %{v:register}     " current register
+
+" support ctags
+" ctags -R .
+" ctrl ]
+" set autochdir " change dir when open a file
+set tags=./tags,tags;$HOME " search tags file
+
+" highlight line column
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
+
+" show hidden characters
+set list
+set listchars=tab:▸\ ,eol:¬
+
+"""""""""""""""""""""""""""""""""""""
+" key bindings
+"""""""""""""""""""""""""""""""""""""
+" use , as leader key
+let mapleader = ";"
+
+" de-highlight selection
+nnoremap <leader><space> :noh<CR>
+
+" move line downward
+nnoremap - :move +1<CR>
+nnoremap = :move -2<CR>
+
+" make
+nnoremap mk  :!make<CR>
+
+" change directory
+" nnoremap cd  :cd %:p:h<CR>
+
+" tab
+nnoremap tn  :tabnew<CR>
+" go prev
+tnoremap <c-h><c-h> <c-w>:tabprev<CR>
+inoremap <c-h><c-h> <esc>:tabprev<CR>
+nnoremap <c-h><c-h> :tabprev<CR>
+" go next
+tnoremap <c-l><c-l> <c-w>:tabnext<CR>
+inoremap <c-l><c-l> <esc>:tabnext<CR>
+nnoremap <c-l><c-l> :tabnext<CR>
+
+" term
+nnoremap <leader>t  :bel term<CR>
+nnoremap <leader>vt :bel vert term<CR>
+nnoremap <leader>nt :tab term<CR>
+
+" delete a line in insert mode
+inoremap <c-d> <esc>ddO
+
+" quote a selected block
+vnoremap <leader>" <esc>`>a"<esc>`<i"<esc>
+vnoremap <leader>' <esc>`>a'<esc>`<i'<esc>
+
+" execute a line in terminal
+nnoremap tt  "ryy<c-w>p<c-w>"r<c-w>p
+" copy selection to terminal
+vnoremap tp "ry<c-w>p<c-w>"r
+" execute selection in terminal
+vnoremap tt "ry<c-w>p<c-w>"r<CR><c-w>p
+
+" source vimrc
+nnoremap <leader>ev :tabnew $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" clean line number and hidden characters
+nnoremap <leader>cl  :set nu! list!<CR>
+
+" toggle spell check
+nnoremap <leader>sp :set spell!<cr>
+
+" sum lines of numbers
+vnoremap sum :s/\n/+/<cr>$xyyddi<c-r>=<c-r>0<bs><cr><esc>
+
+" goto file in new tab
+nnoremap <silent> gf :let mycurf=expand("<cfile>")<cr>:execute("tabnew ".mycurf)<cr>
