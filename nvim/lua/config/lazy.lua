@@ -71,5 +71,14 @@ require("lazy").setup({
   },
   -- END lsp-zero
   ---------------
-  'github/copilot.vim'
+  'github/copilot.vim',
+  -- file explorer
+  {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
 })

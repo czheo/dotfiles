@@ -23,12 +23,6 @@ alias md='mkdir'
 alias rmd='rm -rvf'
 alias em='emacs'
 
-# helper functions
-function crun {
-  rm -rf $1;
-  make $1 && ./$1;
-}
-
 # prompt
 intro="\[\033["
 outro="\]"
@@ -49,21 +43,23 @@ export LSCOLORS="GxdxFxdxCxDxDxhbadExEx"
 
 # git-completion
 # auto-complete git commands
-if [ -f ~/.git-completion.bash ]; then
-    . ~/.git-completion.bash
-else
+if [ ! -f ~/.git-completion.bash ]; then
     curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
-    . ~/.git-completion.bash
 fi
+. ~/.git-completion.bash
 
 # git-prompt
 # show git current branch for you
-if [ -f ~/.git-prompt.sh ]; then
-    . ~/.git-prompt.sh
-else
+if [ ! -f ~/.git-prompt.sh ]; then
     curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
-    . ~/.git-prompt.sh
 fi
+. ~/.git-prompt.sh
+
+# helper functions
+function crun {
+  rm -rf $1;
+  make $1 && ./$1;
+}
 
 if [ -f ~/.bashrc.local ]; then
      . ~/.bashrc.local
