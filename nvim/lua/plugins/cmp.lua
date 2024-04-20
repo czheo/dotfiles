@@ -10,15 +10,16 @@ return {
       },
     })
 
+    -- NOTE (czheo) 04/20/2024: This config disables <tab> completion in cmdline mode. Not helpful.
     -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-    cmp.setup.cmdline(":", {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = cmp.config.sources({
-        { name = "path" },
-      }, {
-        { name = "cmdline" },
-      }),
-      matching = { disallow_symbol_nonprefix_matching = false },
-    })
+    -- cmp.setup.cmdline(":", {
+    --   mapping = cmp.mapping.preset.cmdline(),
+    --   sources = cmp.config.sources({
+    --     { name = "path" },
+    --   }, {
+    --     { name = "cmdline" },
+    --   }),
+    --   matching = { disallow_symbol_nonprefix_matching = false },
+    -- })
   end,
 }
