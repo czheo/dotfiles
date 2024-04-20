@@ -9,3 +9,5 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to get star
 
 - `<c-l>`(i): expand snippets manually.
 - load snippets from `~/.dotfiles/nvim/snippets`
+
+## Github Copilot
