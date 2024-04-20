@@ -13,7 +13,7 @@ return {
       },
     }
   end,
-  config = function()
+  opts = function()
     require("luasnip.loaders.from_lua").load({
       paths = "~/.dotfiles/nvim/snippets",
     })
