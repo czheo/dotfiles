@@ -3,6 +3,7 @@
 -- Add any additional keymaps here
 
 local map = vim.keymap.set
+
 map("n", "<c-n>", function()
   require("neo-tree.command").execute({ toggle = true, dir = LazyVim.root() })
 end, {
