@@ -69,6 +69,11 @@ function sb {
 	source ~/.bashrc
 }
 
+function work {
+	local session="WORK"$1
+	tmux attach-session -t $session || tmux new-session -s $session
+}
+
 if [ -f ~/.bashrc.local ]; then
 	. ~/.bashrc.local
 fi
