@@ -11,6 +11,7 @@
   l = log --graph --oneline --decorate
   ll = log --graph --oneline --decorate --branches --tags
   lll = log --graph --oneline --decorate --all
+  amend = commit --amend --no-edit
 [credential]
   helper = osxkeychain
 [core]
