@@ -34,7 +34,18 @@ clr=$intro"39;49;00m"$outro
 function __files() {
 	ls -l | grep "^[-d]" | wc -l | tr -d " "
 }
-export PS1="${red}[\t]${ylw}[\u@\h]${green}[\w]${red}\$(__git_ps1)${clr} \$(__files) files\n${ylw}:)${clr} "
+function __tmux_pane() {
+	if [ -n "${TMUX+set}" ]; then
+		echo "[tmux${TMUX_PANE}]"
+	fi
+}
+export PS1="${red}[\t]"
+export PS1="$PS1${ylw}[\u@\h]"
+export PS1="$PS1${green}[\w]"
+export PS1="$PS1${red}\$(__git_ps1)${clr}"
+export PS1="$PS1\$(__tmux_pane)"
+export PS1="$PS1 \$(__files) files"
+export PS1="$PS1\n${ylw}:)${clr} "
 export PS2='> '
 export PS4='+ '
 
