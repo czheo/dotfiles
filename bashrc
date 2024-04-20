@@ -7,10 +7,10 @@ export HISTSIZE=99999
 export HISTFILESIZE=99999
 
 # alias
-if [ `uname` = "Linux" ];then
-    alias ls='ls -F --color'
-elif [ `uname` = "Darwin" -o `uname` = "FreeBSD" ];then
-    alias ls='ls -GF'
+if [ $(uname) = "Linux" ]; then
+	alias ls='ls -F --color'
+elif [ $(uname) = "Darwin" -o $(uname) = "FreeBSD" ]; then
+	alias ls='ls -GF'
 fi
 alias l='ls'
 alias la='ls -a'
@@ -32,7 +32,7 @@ ylw=$intro"33m"$outro
 blue=$intro"34m"$outro
 clr=$intro"39;49;00m"$outro
 function __files() {
-    ls -l | grep "^[-d]" | wc -l | tr -d " "
+	ls -l | grep "^[-d]" | wc -l | tr -d " "
 }
 export PS1="${red}[\t]${ylw}[\u@\h]${green}[\w]${red}\$(__git_ps1)${clr} \$(__files) files\n${ylw}:)${clr} "
 export PS2='> '
@@ -44,23 +44,31 @@ export LSCOLORS="GxdxFxdxCxDxDxhbadExEx"
 # git-completion
 # auto-complete git commands
 if [ ! -f ~/.git-completion.bash ]; then
-    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+	curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 fi
 . ~/.git-completion.bash
 
 # git-prompt
 # show git current branch for you
 if [ ! -f ~/.git-prompt.sh ]; then
-    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
+	curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
 fi
 . ~/.git-prompt.sh
 
 # helper functions
 function crun {
-  rm -rf $1;
-  make $1 && ./$1;
+	rm -rf $1
+	make $1 && ./$1
+}
+
+function dot {
+	cd ~/.dotfiles
+}
+
+function sb {
+	source ~/.bashrc
 }
 
 if [ -f ~/.bashrc.local ]; then
-     . ~/.bashrc.local
+	. ~/.bashrc.local
 fi
