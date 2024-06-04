@@ -1,7 +1,7 @@
 return {
   "numToStr/Comment.nvim",
   lazy = false,
-  opts = function()
+  init = function()
     require("Comment").setup({
       mappings = {
         -- disable default key bindings
