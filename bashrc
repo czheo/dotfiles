@@ -6,6 +6,10 @@ export LESS=-Ri # recognize colorized output from grep and case-insensitive
 export HISTSIZE=99999
 export HISTFILESIZE=99999
 
+# so you can `export some_dir=~/some/dir` and `cd some_dir`
+# https://stackoverflow.com/a/39839346/1061751
+shopt -s cdable_vars
+
 # alias
 if [ $(uname) = "Linux" ]; then
 	alias ls='ls -F --color'
