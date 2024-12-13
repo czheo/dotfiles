@@ -44,6 +44,3 @@ fi
 # nvim
 mkdir -p ~/.config
 ln -s ~/.dotfiles/nvim ~/.config/nvim
-
-# install bin
-cp -ir ~/.dotfiles/bin/ ~/bin

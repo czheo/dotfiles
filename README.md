@@ -14,7 +14,7 @@ Quick Notes
 
 ### Bash
 
-- `work [workspace name]` to attack to tmux session
+- `work` to attack to tmux session
 
 ### Neovim
 
