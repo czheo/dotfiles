@@ -1,0 +1,33 @@
+#!/bin/bash
+# usage:
+# work a # attach to default session
+# work a <session name> # attach to an existing session
+# work ls # list all sessions
+# work rm <session name> # remove a session
+
+function help {
+  echo "usage: work [ls|rm|a]"
+  echo "work ls # list all sessions"
+  echo "work a <session name> # attach to an existing session"
+  echo "work rm <session name> # remove a session"
+}
+
+function work {
+  local session="WORK_"${1:-default}
+  tmux attach-session -t $session || tmux new-session -s $session
+}
+
+case $1 in
+ls)
+  tmux list-sessions | grep WORK_ | cut -d: -f1 | sed 's/WORK_//'
+  ;;
+rm)
+  tmux kill-session -t WORK_$2
+  ;;
+a)
+  work $2
+  ;;
+*)
+  help
+  ;;
+esac
