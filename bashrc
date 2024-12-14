@@ -23,7 +23,7 @@ alias lla='ls -alh'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
-alias md='mkdir'
+alias md='mkdir -p'
 alias rmd='rm -rvf'
 alias em='emacs'
 
