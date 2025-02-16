@@ -7,9 +7,10 @@
 
 function help {
   echo "usage: work [ls|rm|a]"
-  echo "work ls # list all sessions"
-  echo "work a <session name> # attach to an existing session"
-  echo "work rm <session name> # remove a session"
+  echo "work  # attach to default session"
+  echo "work ls  # list all sessions"
+  echo "work a <session name>  # attach to an existing session"
+  echo "work rm <session name>  # remove a session"
 }
 
 function work {
@@ -27,7 +28,10 @@ rm)
 a)
   work $2
   ;;
-*)
+help)
   help
+  ;;
+*)
+  work
   ;;
 esac

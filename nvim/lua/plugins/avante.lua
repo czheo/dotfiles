@@ -4,7 +4,8 @@ return {
   lazy = false,
   version = false, -- set this if you want to always pull the latest change
   opts = {
-    provider = "openai",
+    -- provider = "openai",
+    provider = "claude",
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
