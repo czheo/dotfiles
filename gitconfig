@@ -12,10 +12,15 @@
   ll = log --graph --oneline --decorate --branches --tags
   lll = log --graph --oneline --decorate --all
   amend = commit --amend --no-edit
-[credential]
-  helper = osxkeychain
+; [credential]
+;   helper = osxkeychain
 [core]
   excludesfile = ~/.gitignore
 [credential "https://github.com"]
 	helper = 
 	helper = !/usr/bin/env gh auth git-credential
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
