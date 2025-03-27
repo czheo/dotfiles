@@ -6,6 +6,26 @@ return {
   opts = {
     -- provider = "openai",
     provider = "claude",
+    -- provider = "gemma3",
+    cursor_applying_provider = "fastapply",
+    behaviour = {
+      enable_cursor_planning_mode = true, -- enable cursor planning mode!
+    },
+    vendors = {
+      gemma3 = {
+        __inherited_from = "ollama",
+        endpoint = "http://127.0.0.1:11434",
+        -- model = "gemma3:27b",
+        model = "PetrosStav/gemma3-tools:27b",
+        disable_tools = false,
+      },
+      fastapply = {
+        __inherited_from = "ollama",
+        endpoint = "http://127.0.0.1:11434",
+        model = "hf.co/Kortix/FastApply-7B-v1.0_GGUF:Q8_0",
+        temperature = 0,
+      },
+    },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
