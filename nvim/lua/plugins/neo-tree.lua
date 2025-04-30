@@ -1,5 +1,6 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  enabled = false,
   opts = {
     filesystem = {
       bind_to_cwd = true,
