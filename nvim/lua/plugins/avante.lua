@@ -5,18 +5,20 @@ return {
   version = false, -- set this if you want to always pull the latest change
   opts = {
     -- provider = "openai",
-    provider = "claude",
     -- provider = "gemma3",
+    provider = "claude",
+    -- provider = "mylama",
     cursor_applying_provider = "fastapply",
     behaviour = {
       enable_cursor_planning_mode = true, -- enable cursor planning mode!
     },
     vendors = {
-      gemma3 = {
+      mylama = {
         __inherited_from = "ollama",
         endpoint = "http://127.0.0.1:11434",
         -- model = "gemma3:27b",
-        model = "PetrosStav/gemma3-tools:27b",
+        -- model = "PetrosStav/gemma3-tools:27b",
+        model = "devstral:24b",
         disable_tools = false,
       },
       fastapply = {

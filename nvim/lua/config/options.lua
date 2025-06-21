@@ -6,3 +6,6 @@
 vim.opt.colorcolumn = "80"
 -- views can only be fully collapsed with the global statusline
 vim.opt.laststatus = 3
+
+-- do not copy to clipboard
+vim.opt.clipboard = ""
