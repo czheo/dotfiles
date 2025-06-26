@@ -44,3 +44,7 @@ fi
 # nvim
 mkdir -p ~/.config
 ln -s ~/.dotfiles/nvim ~/.config/nvim
+
+if [ "$(uname -s)" = "Darwin" ]; then
+  ln -s ~/.dotfiles/aerospace.toml ~/.aerospace.toml
+fi
