@@ -6,10 +6,10 @@
 # work rm <session name> # remove a session
 
 function help {
-  echo "usage: work [ls|rm|a]"
+  echo "usage: work [ls|rm]"
   echo "work  # attach to default session"
+  echo "work <session name>  # attach to an existing session"
   echo "work ls  # list all sessions"
-  echo "work a <session name>  # attach to an existing session"
   echo "work rm <session name>  # remove a session"
 }
 
@@ -25,13 +25,10 @@ ls)
 rm)
   tmux kill-session -t WORK_$2
   ;;
-a)
-  work $2
-  ;;
-help)
+help | -h | --help)
   help
   ;;
 *)
-  work
+  work $1
   ;;
 esac
