@@ -6,26 +6,29 @@ return {
   opts = {
     -- provider = "openai",
     -- provider = "gemma3",
-    provider = "claude",
     -- provider = "mylama",
+    provider = "claude",
     cursor_applying_provider = "fastapply",
     behaviour = {
       enable_cursor_planning_mode = true, -- enable cursor planning mode!
     },
-    vendors = {
+    providers = {
       mylama = {
         __inherited_from = "ollama",
         endpoint = "http://127.0.0.1:11434",
         -- model = "gemma3:27b",
         -- model = "PetrosStav/gemma3-tools:27b",
-        model = "devstral:24b",
+        model = "gpt-oss:20b",
+        -- model = "qwen2.5-coder:32b",
         disable_tools = false,
       },
       fastapply = {
         __inherited_from = "ollama",
         endpoint = "http://127.0.0.1:11434",
         model = "hf.co/Kortix/FastApply-7B-v1.0_GGUF:Q8_0",
-        temperature = 0,
+        extra_request_body = {
+          temperature = 0,
+        },
       },
     },
   },
