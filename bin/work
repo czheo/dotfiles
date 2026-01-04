@@ -1,9 +1,4 @@
 #!/bin/bash
-# usage:
-# work a # attach to default session
-# work a <session name> # attach to an existing session
-# work ls # list all sessions
-# work rm <session name> # remove a session
 
 function help {
   echo "usage: work [ls|rm]"
