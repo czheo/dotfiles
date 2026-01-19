@@ -10,6 +10,8 @@ export HISTFILESIZE=99999
 # https://stackoverflow.com/a/39839346/1061751
 shopt -s cdable_vars
 
+export DOT=$HOME/.dotfiles
+
 # alias
 if [ $(uname) = "Linux" ]; then
   alias ls='ls -F --color'
@@ -73,10 +75,6 @@ fi
 function crun {
   rm -rf $1
   make $1 && ./$1
-}
-
-function dot {
-  cd ~/.dotfiles
 }
 
 function sb {
