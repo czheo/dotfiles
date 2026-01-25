@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+pypirc="${PYPI_RC:-$HOME/.pypirc}"
+section="pypi"
+
+if [[ ! -f "$pypirc" ]]; then
+  echo "pypi-pass: missing $pypirc" >&2
+  exit 1
+fi
+
+# Extract password from the [pypi] section.
+password=$(
+  awk -v section="$section" '
+    BEGIN { in_section=0 }
+    /^[[:space:]]*\[/ {
+      in_section = ($0 ~ "^[[:space:]]*\\[" section "\\][[:space:]]*$")
+      next
+    }
+    in_section {
+      # strip comments
+      sub(/[;#].*$/, "")
+      if ($0 ~ /^[[:space:]]*password[[:space:]]*=/) {
+        sub(/^[[:space:]]*password[[:space:]]*=[[:space:]]*/, "")
+        gsub(/[[:space:]]+$/, "")
+        print
+        exit
+      }
+    }
+  ' "$pypirc"
+)
+
+if [[ -z "$password" ]]; then
+  echo "pypi-pass: password not found in [$section]" >&2
+  exit 1
+fi
+
+printf '%s\n' "$password"
