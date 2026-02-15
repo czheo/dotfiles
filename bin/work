@@ -10,7 +10,18 @@ function help {
 
 function work {
   local session="WORK_"${1:-default}
-  tmux attach-session -t $session || tmux new-session -s $session
+
+  if tmux has-session -t "$session" 2>/dev/null; then
+    tmux attach-session -t "$session"
+  else
+    tmux new-session -d -s "$session"
+    tmux new-window -t "$session:1" -n agent01
+    tmux new-window -t "$session:2" -n agent02
+    tmux new-window -t "$session:3" -n agent03
+    tmux new-window -t "$session:4"
+    tmux select-window -t "$session:0"
+    tmux attach-session -t "$session"
+  fi
 }
 
 case $1 in
