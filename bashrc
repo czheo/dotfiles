@@ -81,6 +81,35 @@ function sb {
   source ~/.bashrc
 }
 
+# bash completion for work
+function __work_sessions() {
+  if command -v tmux >/dev/null 2>&1; then
+    tmux list-sessions 2>/dev/null | awk -F: '/^WORK_/ {sub(/^WORK_/, "", $1); print $1}'
+  fi
+}
+
+function _work_completion() {
+  local cur prev
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  prev="${COMP_WORDS[COMP_CWORD-1]}"
+
+  if [ "$COMP_CWORD" -eq 1 ]; then
+    COMPREPLY=($(compgen -W "ls rm help -h --help $(__work_sessions)" -- "$cur"))
+    return
+  fi
+
+  case "$prev" in
+  rm)
+    COMPREPLY=($(compgen -W "$(__work_sessions)" -- "$cur"))
+    return
+    ;;
+  esac
+
+  COMPREPLY=()
+}
+
+complete -F _work_completion work
+
 if [ -f ~/.bashrc.local ]; then
   . ~/.bashrc.local
 fi
