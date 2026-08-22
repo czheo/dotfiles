@@ -29,3 +29,7 @@ Stable Pi configuration lives in [`pi/`](pi/) and is linked into
 
 Credentials (`auth.json`), sessions, generated model data, installed packages,
 and machine-local skills remain untracked under `~/.pi/agent`.
+
+Personal Pi extensions are maintained in
+[`czheo/my-pi-package`](https://github.com/czheo/my-pi-package) and installed as
+a Git package by `pi/settings.json`.

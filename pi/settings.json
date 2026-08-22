@@ -4,6 +4,7 @@
   "defaultThinkingLevel": "medium",
   "doubleEscapeAction": "tree",
   "packages": [
+    "git:github.com/czheo/my-pi-package",
     "npm:pi-subagents@latest",
     "npm:@juicesharp/rpiv-ask-user-question",
     "npm:pi-btw",
@@ -11,5 +12,6 @@
     "npm:@pi-vault/pi-dcp",
     "npm:pi-rtk-optimizer"
   ],
-  "theme": "dark"
+  "theme": "dark",
+  "lastChangelogVersion": "0.84.2"
 }
