@@ -45,6 +45,17 @@ fi
 mkdir -p ~/.config
 ln -s ~/.dotfiles/nvim ~/.config/nvim
 
+# pi
+# Keep runtime state (credentials, sessions, caches, and installed packages) local.
+mkdir -p ~/.pi/agent/extensions/pi-rtk-optimizer
+rm -f ~/.pi/agent/settings.json \
+      ~/.pi/agent/models.json \
+      ~/.pi/agent/extensions/pi-rtk-optimizer/config.json
+ln -s ~/.dotfiles/pi/settings.json ~/.pi/agent/settings.json
+ln -s ~/.dotfiles/pi/models.json ~/.pi/agent/models.json
+ln -s ~/.dotfiles/pi/extensions/pi-rtk-optimizer/config.json \
+      ~/.pi/agent/extensions/pi-rtk-optimizer/config.json
+
 if [ "$(uname -s)" = "Darwin" ]; then
   ln -s ~/.dotfiles/aerospace.toml ~/.aerospace.toml
 fi
