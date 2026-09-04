@@ -6,7 +6,8 @@
 # https://github.com/FelixKratz/dotfiles
 
 PLUGIN_DIR="$CONFIG_DIR/plugins"
-AEROSPACE="/opt/homebrew/bin/aerospace"
+export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+AEROSPACE="$(command -v aerospace)"
 
 ##### Bar Appearance #####
 # Configuring the general appearance of the bar.

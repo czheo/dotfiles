@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
-AEROSPACE="/opt/homebrew/bin/aerospace"
-SKETCHYBAR="/opt/homebrew/bin/sketchybar"
+export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+AEROSPACE="$(command -v aerospace)"
+SKETCHYBAR="$(command -v sketchybar)"
 WORKSPACES="1 2 3 B G O Q"
+
+[ -n "$AEROSPACE" ] && [ -n "$SKETCHYBAR" ] || exit 0
 
 source "${CONFIG_DIR:-$HOME/.config/sketchybar}/plugins/icon_map.sh"
 
