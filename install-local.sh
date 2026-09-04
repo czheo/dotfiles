@@ -57,5 +57,8 @@ ln -s ~/.dotfiles/pi/extensions/pi-rtk-optimizer/config.json \
       ~/.pi/agent/extensions/pi-rtk-optimizer/config.json
 
 if [ "$(uname -s)" = "Darwin" ]; then
+  rm -f ~/.aerospace.toml
+  rm -rf ~/.config/sketchybar
   ln -s ~/.dotfiles/aerospace.toml ~/.aerospace.toml
+  ln -s ~/.dotfiles/sketchybar ~/.config/sketchybar
 fi
