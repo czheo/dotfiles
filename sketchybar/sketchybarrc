@@ -34,6 +34,12 @@ default=(
   icon.padding_right=4
   label.padding_left=4
   label.padding_right=4
+  background.drawing=on
+  background.color=0x00000000
+  background.border_color=0xffff5a36
+  background.border_width=1
+  background.corner_radius=5
+  background.height=25
 )
 sketchybar --default "${default[@]}"
 
@@ -45,24 +51,27 @@ sketchybar --add event aerospace_focus_change
 
 # Keep startup independent from AeroSpace. At login SketchyBar may start before
 # AeroSpace has opened its socket, and a live query here can stall the config.
-AEROSPACE_WORKSPACES="1 2 3 B G O Q"
+AEROSPACE_WORKSPACES="1 2 3 B Z O Q"
 
 for sid in $AEROSPACE_WORKSPACES
 do
+  # Member padding is swallowed by the bracket frame below, so keep it at 0 and
+  # let the frame hug the content the way the right-hand items' frames do.
   space=(
     icon="$sid"
-    icon.padding_left=7
-    icon.padding_right=7
+    padding_left=0
+    padding_right=0
     label.font="sketchybar-app-font:Regular:16.0"
     label.padding_left=0
     label.padding_right=4
     label.drawing=off
+    background.drawing=off
     click_script="$AEROSPACE workspace $sid"
   )
   focused_window=(
     drawing=off
     padding_left=0
-    padding_right=5
+    padding_right=0
     icon.font="sketchybar-app-font:Regular:16.0"
     icon.padding_left=2
     icon.padding_right=3
@@ -70,19 +79,37 @@ do
     label.padding_left=0
     label.padding_right=4
     label.max_chars=18
+    background.drawing=off
   )
+  # Padding on a bracket member lands inside the bracket's frame, so the gap
+  # between workspaces has to come from an item no bracket owns. 10px matches
+  # the 5+5 item padding separating the right-hand items.
+  space_gap=(
+    width=10
+    padding_left=0
+    padding_right=0
+    icon.drawing=off
+    label.drawing=off
+    background.drawing=off
+  )
+  # The bracket carries the outline for the whole workspace group, so the two
+  # member items above keep their own backgrounds off to avoid nested boxes.
   space_bracket=(
-    background.color=0x40ffffff
+    background.drawing=on
+    background.color=0x00000000
+    background.border_color=0xffff5a36
+    background.border_width=1
     background.corner_radius=5
     background.height=25
     background.padding_left=0
     background.padding_right=0
-    background.drawing=off
   )
   sketchybar --add item space."$sid" left \
              --set space."$sid" "${space[@]}" \
              --add item space_focus."$sid" left \
              --set space_focus."$sid" "${focused_window[@]}" \
+             --add item space_gap."$sid" left \
+             --set space_gap."$sid" "${space_gap[@]}" \
              --add bracket space_bracket."$sid" space."$sid" space_focus."$sid" \
              --set space_bracket."$sid" "${space_bracket[@]}"
 done
@@ -111,6 +138,8 @@ sketchybar --add item aerospace_workspace_observer left \
 # volume is registered. More info about the event system can be found here:
 # https://felixkratz.github.io/SketchyBar/config/events
 
+sketchybar --add event voxtype_state_change
+
 sketchybar --add item clock right \
            --set clock update_freq=10 icon=  script="$PLUGIN_DIR/clock.sh" \
            --add item volume right \
@@ -122,7 +151,20 @@ sketchybar --add item clock right \
            --add item system_stats right \
            --set system_stats update_freq=5 \
                               icon.drawing=off \
-                              script="$PLUGIN_DIR/system_stats.sh"
+                              script="$PLUGIN_DIR/system_stats.sh" \
+           --add item voxtype right \
+           --set voxtype drawing=off \
+                         update_freq=5 \
+                         icon="" \
+                         icon.padding_left=4 \
+                         icon.padding_right=4 \
+                         label.drawing=off \
+                         script="$PLUGIN_DIR/voxtype.sh" \
+           --subscribe voxtype voxtype_state_change
+
+# Translate Voxtype's state-file changes into near-instant SketchyBar events.
+# The watcher uses a process lock, so config reloads cannot create duplicates.
+"$PLUGIN_DIR/voxtype_watcher.py" >/dev/null 2>&1 &
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update

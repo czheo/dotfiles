@@ -3,7 +3,7 @@
 export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 AEROSPACE="$(command -v aerospace)"
 SKETCHYBAR="$(command -v sketchybar)"
-WORKSPACES="1 2 3 B G O Q"
+WORKSPACES="1 2 3 B Z O Q"
 
 [ -n "$AEROSPACE" ] && [ -n "$SKETCHYBAR" ] || exit 0
 
@@ -11,8 +11,6 @@ source "${CONFIG_DIR:-$HOME/.config/sketchybar}/plugins/icon_map.sh"
 
 workspace_rows="$($AEROSPACE list-workspaces --all \
   --format '%{workspace}|%{monitor-appkit-nsscreen-screens-id}' 2>/dev/null)" || exit 0
-visible_workspaces="$($AEROSPACE list-workspaces --monitor all --visible \
-  --format '%{workspace}' 2>/dev/null)" || exit 0
 focused_workspace="$($AEROSPACE list-workspaces --focused \
   --format '%{workspace}' 2>/dev/null)"
 window_rows="$($AEROSPACE list-windows --all \
@@ -29,13 +27,10 @@ for sid in $WORKSPACES; do
   display_id="$(printf '%s\n' "$workspace_rows" | awk -F '|' -v sid="$sid" '$1 == sid { print $2; exit }')"
   [ -n "$display_id" ] || continue
 
-  background_drawing=off
-  background_color=0x40ffffff
-  if printf '%s\n' "$visible_workspaces" | grep -Fxq "$sid"; then
-    background_drawing=on
-  fi
+  # Every workspace keeps its orange outline; only the focused one is filled.
+  background_color=0x00000000
   if [ "$sid" = "$focused_workspace" ]; then
-    background_color=0x80ff5a36
+    background_color=0xffff5a36
   fi
 
   icon_strip=""
@@ -70,8 +65,9 @@ for sid in $WORKSPACES; do
     "drawing=$focused_drawing"
     "icon=$focused_icon"
     "label=$focused_name"
+    --set "space_gap.$sid"
+    "display=$display_id"
     --set "space_bracket.$sid"
-    "background.drawing=$background_drawing"
     "background.color=$background_color"
   )
 done

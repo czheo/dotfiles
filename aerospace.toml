@@ -145,7 +145,7 @@ on-window-detected = [
     alt-b = 'workspace B'
     alt-o = 'workspace O'
     alt-q = 'workspace Q'
-    alt-g = 'workspace G'
+    alt-z = 'workspace Z'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     alt-shift-1 = 'move-node-to-workspace --focus-follows-window 1'
@@ -154,7 +154,7 @@ on-window-detected = [
     alt-shift-b = 'move-node-to-workspace --focus-follows-window B'
     alt-shift-o = 'move-node-to-workspace --focus-follows-window O'
     alt-shift-q = 'move-node-to-workspace --focus-follows-window Q'
-    alt-shift-g = 'move-node-to-workspace --focus-follows-window G'
+    alt-shift-z = 'move-node-to-workspace --focus-follows-window Z'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
